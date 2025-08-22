@@ -112,7 +112,7 @@ In topology, Stone-\v{C}ech compactification \cite{stone1936theory} extends comp
 
 In algebraic contexts, MacNeille completions \cite{macneille1937extension} extend partially ordered sets to complete lattices while preserving existing meets and joins. The construction tests elements against upward and downward closed sets. Canonical extensions of distributive lattices \cite{jonsson1951boolean} provide completions that preserve finite operations while adding infinite operations, through testing between filters and ideals. Profinite completions \cite{pontryagin1966topological} of groups provide inverse limits of finite quotients, testing group elements against finite quotient structures.
 
-Category theory contributes its own completion processes: Kan extensions \cite{kan1958adjoint} complete diagrams by providing optimal approximations when direct limits or colimits fail to exist. Isbell envelopes \cite{isbell1960adequate} complete categories by adding morphisms through presheaf-copresheaf testing. Gabriel-Ulmer's Ind and Pro completions \cite{gabriel1971categories} systematically add filtered colimits and cofiltered limits.
+Category theory contributes its own completion processes: Kan extensions \cite{kan1958adjoint} complete diagrams by providing optimal approximations when direct limits or colimits fail to exist. Isbell envelopes \cite{isbell1960adequate} complete categories by adding morphisms through presheaf-copresheaf testing. Gabriel-Ulmer's Ind and Pro completions \cite{gabriel1971lokal} systematically add filtered colimits and cofiltered limits.
 
 These completion processes share structural patterns. Each involves extending a mathematical structure to support operations determined by systematic testing between dual categorical structures. This pattern suggests the possibility of a unified theory that captures common structural principles.
 
@@ -140,13 +140,14 @@ The paper emphasizes weighted completion as the fundamental theory with complete
 
 Bilateral weighted completion theory transforms mathematical completion from a collection of domain-specific techniques into a unified categorical framework. This unification provides both theoretical insight into common principles underlying completion phenomena and practical methodology for completion in new mathematical contexts.
 
-\section{Bilateral Weighted Completions - The Fundamental Theory}
+\section{Bilateral Weighted Completions: The Fundamental Theory}
 
 \subsection{Mathematical Framework}
 
 We work within enriched category theory over a complete and cocomplete symmetric monoidal closed category $\V = (\V, \tensor, I, [-,-])$. The enriched setting is needed for capturing the bilateral weight structure that governs completion processes.
 
 \begin{definition}[Bilateral Pairings and Morphisms]\label{def:bilateral-pairing}
+\mbox{} \bigskip
 \begin{enumerate}
 \item A \textbf{bilateral pairing} is a 6-tuple $(I, J, D, E, Q, \theta)$ where:
 \begin{itemize}
@@ -173,7 +174,7 @@ We work within enriched category theory over a complete and cocomplete symmetric
 Classical weighted limits emerge when $I$ is the unit category $\mathbf{1}$, reducing the bilateral weight $Q : \mathbf{1}^{\op} \otimes J \to \V \cong J \to \V$ to a classical weight. The bilateral generalization captures dual structure present in completion phenomena.
 \end{remark}
 
-\subsection{Weighted Completions - Definition and Existence}
+\subsection{Weighted Completions : Definition and Existence}
 
 \begin{definition}[Weighted Completion of a Bilateral Pairing]\label{def:weighted-completion}
 Let $\theta : Q \Rightarrow \mathcal{C}(D,E)$ be a bilateral pairing. A \textbf{weighted completion} of $\theta$ is a pair $(\widehat{\mathcal{C}}, \varepsilon_{\mathcal{C}})$ consisting of:
@@ -216,17 +217,17 @@ Let $\V$ be a complete and cocomplete symmetric monoidal closed category. For ev
 \begin{proof}
 We construct the weighted completion through extension via the $\V$-presheaf category.
 
-\textbf{Step 1: Presheaf embedding.} 
+\textbf{Step 1: Presheaf embedding} 
 Let $[\C^{\op}, \V]$ denote the $\V$-category of $\V$-enriched presheaves on $\C$. By Kelly \cite{kelly1982basic}, this category is complete and cocomplete, with limits and colimits computed pointwise. Let $y : \C \to [\C^{\op}, \V]$ denote the Yoneda embedding, defined by $y(c)(c') = \C(c', c)$ for $c, c' \in \C$. By the enriched Yoneda lemma, $y$ is fully faithful.
 
-\textbf{Step 2: Existence of bilateral weighted limits and colimits.}
+\textbf{Step 2: Existence of bilateral weighted limits and colimits}
 For each $j \in J$, consider the weight $Q(-, j) : I^{\op} \to \V$. Since $[\C^{\op}, \V]$ is cocomplete, the $Q(-, j)$-weighted colimit of $y \circ D : I \to [\C^{\op}, \V]$ exists:
 $$Y(j) := \colim^{Q(-, j)} (y \circ D)$$
 
 Similarly, for each $i \in I$, consider the weight $Q(i, -) : J \to \V$. Since $[\C^{\op}, \V]$ is complete, the $Q(i, -)$-weighted limit of $y \circ E : J \to [\C^{\op}, \V]$ exists:
 $$Z(i) := \lim^{Q(i, -)} (y \circ E)$$
 
-\textbf{Step 3: Construction of bilateral factorization.}
+\textbf{Step 3: Construction of bilateral factorization}
 By the universal property of $Q(-, j)$-weighted colimits, for each $(i, j) \in I \times J$, we obtain a canonical morphism:
 $$\lambda_{i,j} : Q(i, j) \to [\C^{\op}, \V](y(D(i)), Y(j))$$
 
@@ -246,34 +247,38 @@ We thus obtain the factorization:
 $$y^* \theta = \rho \star \gamma \star \lambda$$
 where $y^* \theta(i, j) : Q(i, j) \to [\C^{\op}, \V](y(D(i)), y(E(j))) \cong \C(D(i), E(j))$ is the Yoneda isomorphism applied to $\theta$.
 
-\textbf{Step 4: Weighted completion category.} 
+\textbf{Step 4: Weighted completion category} 
 Define $\wh{\C}$ as the replete full $\V$-subcategory of $[\C^{\op}, \V]$ generated by:
 $$\mathrm{Ob}(\wh{\C}) := y(\mathrm{Ob}(\C)) \cup \{Y(j) : j \in J\} \cup \{Z(i) : i \in I\}$$
 
 Let $\varepsilon_\C : \C \to \wh{\C}$ be the restriction of the Yoneda embedding $y$. Since $y$ is fully faithful, so is $\varepsilon_\C$.
 
-\textbf{Step 5: Verification of bilateral factorization.}
+\textbf{Step 5: Verification of bilateral factorization}
 The factorization $y^* \theta = \rho \star \gamma \star \lambda$ in $[\C^{\op}, \V]$ restricts to a factorization $\varepsilon_\C^* \theta = \rho \star \gamma \star \lambda$ in $\wh{\C}$ by construction of $\wh{\C}$.
 
-\textbf{Step 6: Universal property.}
+\textbf{Step 6: Universal property}
 Suppose $\mathcal{D}$ is a $\V$-category with fully faithful $\kappa : \mathcal{C} \hookrightarrow \mathcal{D}$ such that $\kappa^* \theta$ admits bilateral factorization $\kappa^* \theta = \rho' \star \gamma' \star \lambda'$ with functors $Y' : J \to \mathcal{D}$ and $Z' : I \to \mathcal{D}$.
 
 By the universal property of the Yoneda embedding, $\kappa$ extends to a $\V$-functor $\wt{\kappa} : [\C^{\op}, \V] \to \mathcal{D}$ such that $\wt{\kappa} \circ y = \kappa$.
 
 The bilateral factorization in $\mathcal{D}$ implies that:
-- For each $j \in J$, $Y'(j)$ is the $Q(-, j)$-weighted colimit of $\kappa \circ D$ in $\mathcal{D}$
-- For each $i \in I$, $Z'(i)$ is the $Q(i, -)$-weighted limit of $\kappa \circ E$ in $\mathcal{D}$
+\begin{itemize}
+\item For each $j \in J$, $Y'(j)$ is the $Q(-, j)$-weighted colimit of $\kappa \circ D$ in $\mathcal{D}$
+\item For each $i \in I$, $Z'(i)$ is the $Q(i, -)$-weighted limit of $\kappa \circ E$ in $\mathcal{D}$
+\end{itemize}
 
 By the universal property of weighted limits and colimits, and since $\wt{\kappa}$ preserves limits and colimits, we have:
-- $\wt{\kappa}(Y(j)) \cong Y'(j)$ for all $j \in J$
-- $\wt{\kappa}(Z(i)) \cong Z'(i)$ for all $i \in I$
+\begin{itemize}
+\item $\wt{\kappa}(Y(j)) \cong Y'(j)$ for all $j \in J$
+\item $\wt{\kappa}(Z(i)) \cong Z'(i)$ for all $i \in I$
+\end{itemize}
 
 Therefore, $\wt{\kappa}$ restricts to a $\V$-functor $F : \wh{\C} \to \mathcal{D}$ such that $F \circ \varepsilon_\C = \kappa$ and $F$ preserves the bilateral factorization structure.
 
-\textbf{Step 7: Uniqueness.}
+\textbf{Step 7: Uniqueness}
 The uniqueness of $F$ follows from the fact that $F$ is completely determined by its action on the generators of $\wh{\C}$: the images of objects from $\C$, the completion objects $Y(j)$, and the completion objects $Z(i)$. The universal properties of weighted limits and colimits determine these actions uniquely.
 
-\textbf{Step 8: Uniqueness of weighted completion.}
+\textbf{Step 8: Uniqueness of weighted completion}
 If $(\wh{\C}', \varepsilon_\C')$ is another weighted completion of $\theta$, then by the universal property applied in both directions, there exist unique $\V$-functors $F : \wh{\C} \to \wh{\C}'$ and $G : \wh{\C}' \to \wh{\C}$ such that $F \circ \varepsilon_\C = \varepsilon_\C'$ and $G \circ \varepsilon_\C' = \varepsilon_\C$. The composition $G \circ F : \wh{\C} \to \wh{\C}$ satisfies $(G \circ F) \circ \varepsilon_\C = \varepsilon_\C$, so by uniqueness in the universal property, $G \circ F = \id_{\wh{\C}}$. Similarly, $F \circ G = \id_{\wh{\C}'}$. Therefore, $F$ and $G$ are inverse equivalences, proving uniqueness up to unique isomorphism.
 \end{proof}
 
@@ -339,9 +344,11 @@ By Corollary \ref{cor:internal-weighted completion}, the weighted completion can
 $\C^Q = \text{full subcategory generated by } \{\ast\} \cup \{\lim^Q G\} \cup \mathrm{Ob}(G)$
 
 The bilateral factorization becomes:
-- $\lambda(\ast, j) : Q(\ast, j) \to \C(\ast, \lim^Q G)$ (universal cone)
-- $\gamma(\ast, j) : Q(\ast, j) \to \C(\lim^Q G, \lim^Q G)$ (identity)
-- $\rho(\ast, j) : Q(\ast, j) \to \C(\lim^Q G, G(j))$ (limit cone)
+\begin{itemize}
+\item $\lambda(\ast, j) : Q(\ast, j) \to \C(\ast, \lim^Q G)$ (universal cone)
+\item $\gamma(\ast, j) : Q(\ast, j) \to \C(\lim^Q G, \lim^Q G)$ (identity)
+\item $\rho(\ast, j) : Q(\ast, j) \to \C(\lim^Q G, G(j))$ (limit cone)
+\end{itemize}
 
 This recovers exactly the classical $Q$-weighted limit structure.
 
@@ -522,7 +529,7 @@ For a bilateral pairing $\theta : Q \Rightarrow \C(D, E)$, the following are equ
 \begin{example}[Complete Pairing: Compact Hausdorff Spaces]
 Consider the bilateral pairing for Stone-\v{C}ech compactification applied to a compact Hausdorff space $X$. The bilateral weight involves filters and ultrafilters, and the pairing tests continuous functions.
 
-For a compact Hausdorff space, every ultrafilter converges to a unique point, and every bounded continuous function is already defined on the whole space. The bilateral pairing is complete because no further completion is necessary - the space already has the required bilateral structure.
+For a compact Hausdorff space, every ultrafilter converges to a unique point, and every bounded continuous function is already defined on the whole space. The bilateral pairing is complete because no further completion is necessary: The space already has the required bilateral structure.
 \end{example}
 
 \begin{example}[Incomplete Pairing: Non-Regular Spaces]
@@ -555,9 +562,9 @@ A bilateral pairing arising from a classical completion problem is complete if a
 \begin{proof}
 Each case follows by analyzing the bilateral denseness and compactness conditions:
 
-\textbf{Topology:} Complete regularity is precisely the condition needed for the filter-ultrafilter bilateral pairing to be bilaterally dense - it ensures sufficient continuous functions exist to separate the bilateral structure.
+\textbf{Topology:} Complete regularity is precisely the condition needed for the filter-ultrafilter bilateral pairing to be bilaterally dense: It ensures sufficient continuous functions exist to separate the bilateral structure.
 
-\textbf{Lattice Theory:} Distributivity is exactly the condition needed for the filter-ideal bilateral pairing to be bilaterally dense - it ensures the filter-ideal interaction has the required bilateral structure.
+\textbf{Lattice Theory:} Distributivity is exactly the condition needed for the filter-ideal bilateral pairing to be bilaterally dense: It ensures the filter-ideal interaction has the required bilateral structure.
 
 \textbf{Group Theory:} A group is profinite if and only if it's the inverse limit of its finite quotients, which is precisely the condition for the finite quotient bilateral pairing to be complete.
 
@@ -659,10 +666,12 @@ For a bilateral pairing $\theta = (I, J, D, E, Q, \theta)$ with weighted complet
 $$\eta_\theta = (\id_I, \id_J, \varepsilon_\C, \id_Q) : \theta \to \mathbb{W}(\theta)$$
 
 This is indeed a morphism of bilateral pairings because:
-- The functors $\id_I : I \to I$ and $\id_J : J \to J$ are identities
-- The functor $\varepsilon_\C : \C \to \wh{\C}$ is fully faithful by definition
-- The natural transformation $\id_Q : Q \Rightarrow Q$ is the identity
-- Compatibility: $\varepsilon_\C^* \theta = \varepsilon_\C \circ \theta \circ \id_Q = \varepsilon_\C^* \theta$ 
+\begin{itemize}
+\item The functors $\id_I : I \to I$ and $\id_J : J \to J$ are identities
+\item The functor $\varepsilon_\C : \C \to \wh{\C}$ is fully faithful by definition
+\item The natural transformation $\id_Q : Q \Rightarrow Q$ is the identity
+\item Compatibility: $\varepsilon_\C^* \theta = \varepsilon_\C \circ \theta \circ \id_Q = \varepsilon_\C^* \theta$ 
+\end{itemize}
 
 \textbf{Naturality of $\eta$:}
 For a morphism $\phi = (u, v, F, \alpha) : \theta \to \theta'$, we need to verify that the following diagram commutes:
@@ -757,8 +766,10 @@ Second law: Since $\theta$ is complete, $\mathbb{W}(\theta)$ is isomorphic to $\
 
 \textbf{Equivalence of categories:}
 The constructions are mutually inverse:
-- Starting with algebra $(\theta, \alpha_\theta)$, we get complete pairing $\theta$, which gives back algebra $(\theta, \alpha_\theta)$
-- Starting with complete pairing $\theta$, we construct algebra $(\theta, \alpha_\theta)$, and $\theta$ is still complete
+\begin{itemize}
+\item Starting with algebra $(\theta, \alpha_\theta)$, we get complete pairing $\theta$, which gives back algebra $(\theta, \alpha_\theta)$
+\item Starting with complete pairing $\theta$, we construct algebra $(\theta, \alpha_\theta)$, and $\theta$ is still complete
+\end{itemize}
 
 The functors preserve and reflect the morphism structure in both directions.
 \end{proof}
@@ -787,23 +798,29 @@ Garner's Isbell monad $\mathcal{I}$ on the category of small categories is isomo
 \begin{proof}
 \textbf{Setup of the specialization:}
 Consider bilateral pairings of the form $(I, J, D, E, Q, \theta)$ where:
-- $I = J = \C$ for some small category $\C$
-- $D = E = \id_\C$ (identity functors)
-- $Q = \mathbf{1} : \C^{\op} \otimes \C \to \mathbf{Set}$ (constant at singleton sets)
-- $\theta : \mathbf{1} \Rightarrow \C(-, -)$ (the unique natural transformation)
+\begin{itemize}
+\item $I = J = \C$ for some small category $\C$
+\item $D = E = \id_\C$ (identity functors)
+\item $Q = \mathbf{1} : \C^{\op} \otimes \C \to \mathbf{Set}$ (constant at singleton sets)
+\item $\theta : \mathbf{1} \Rightarrow \C(-, -)$ (the unique natural transformation)
+\end{itemize}
 
 \textbf{Weighted completion in this case:}
 The weighted completion requires:
-- $Y(c) = \colim^{\mathbf{1}(-, c)} \id_\C = \colim^{\{*\}} \id_\C = c$ (trivial colimit)
-- $Z(c) = \lim^{\mathbf{1}(c, -)} \id_\C = \lim^{\{*\}} \id_\C = c$ (trivial limit)
+\begin{itemize}
+\item $Y(c) = \colim^{\mathbf{1}(-, c)} \id_\C = \colim^{\{*\}} \id_\C = c$ (trivial colimit)
+\item $Z(c) = \lim^{\mathbf{1}(c, -)} \id_\C = \lim^{\{*\}} \id_\C = c$ (trivial limit)
+\end{itemize}
 
 However, the full weighted completion $\wh{\C}$ includes all representable presheaves and copresheaves that arise from the bilateral completion process, which is precisely the Isbell envelope $\mathcal{I}(\C)$.
 
 \textbf{Bilateral factorization:}
 The bilateral factorization $\varepsilon_\C^* \theta = \rho \star \gamma \star \lambda$ becomes:
-- $\lambda(c, c') : \{*\} \to \wh{\C}(c, c)$ (identity morphisms)
-- $\gamma(c, c') : \{*\} \to \wh{\C}(c, c)$ (identity morphisms)  
-- $\rho(c, c') : \{*\} \to \wh{\C}(c, c')$ (the extended hom-structure)
+\begin{itemize}
+\item $\lambda(c, c') : \{*\} \to \wh{\C}(c, c)$ (identity morphisms)
+\item $\gamma(c, c') : \{*\} \to \wh{\C}(c, c)$ (identity morphisms)  
+\item $\rho(c, c') : \{*\} \to \wh{\C}(c, c')$ (the extended hom-structure)
+\end{itemize}
 
 This is exactly the structure of Garner's Isbell envelope.
 
@@ -852,14 +869,16 @@ The weighted completion yields $\beta X$ with its universal property.
 \end{theorem}
 
 \begin{proof}
-\textbf{Step 1: Verification of bilateral pairing.}
+\textbf{Step 1: Verification of bilateral pairing}
 We must verify that $\theta : Q \Rightarrow \mathbf{Top}(D, E)$ is well-defined:
-- When $F \subseteq U$, we have $Q(F, U) = \{*\}$ and $\mathbf{Top}(D(F), E(U)) = \mathbf{Top}(X, \{*\}) = \{!_X\}$
-- The assignment $\theta_{F,U}(*) = !_X$ is well-defined
-- When $F \not\subseteq U$, we have $Q(F, U) = \emptyset$, so there's nothing to define
-- Naturality follows because the only morphisms in $\mathrm{Filt}(X)$ and $\mathrm{UF}(X)$ are inclusions
+\begin{itemize}
+\item When $F \subseteq U$, we have $Q(F, U) = \{*\}$ and $\mathbf{Top}(D(F), E(U)) = \mathbf{Top}(X, \{*\}) = \{!_X\}$
+\item The assignment $\theta_{F,U}(*) = !_X$ is well-defined
+\item When $F \not\subseteq U$, we have $Q(F, U) = \emptyset$, so there's nothing to define
+\item Naturality follows because the only morphisms in $\mathrm{Filt}(X)$ and $\mathrm{UF}(X)$ are inclusions
+\end{itemize}
 
-\textbf{Step 2: Construction of weighted completion.}
+\textbf{Step 2: Construction of weighted completion}
 Following Theorem \ref{thm:universal-existence}, we construct the weighted completion in $[\mathbf{Top}^{\op}, \mathbf{Set}]$.
 
 For each ultrafilter $U$, the $Q(-, U)$-weighted colimit is:
@@ -872,17 +891,19 @@ since all ultrafilters containing $F$ map to the same one-point space.
 
 However, this presheaf-category analysis doesn't directly yield the Stone-\v{C}ech compactification. We need to use the specific topological structure.
 
-\textbf{Step 3: Topological realization.}
+\textbf{Step 3: Topological realization}
 The key insight is that the bilateral completion is realized topologically as follows:
 
 Consider the evaluation map $\text{ev} : X \to \prod_{f \in C_b(X)} \mathbb{R}$ where $C_b(X)$ is the space of bounded continuous real-valued functions on $X$. The Stone-\v{C}ech compactification $\beta X$ is the closure of the image of $X$ in this product space.
 
 The bilateral structure emerges as follows:
-- Filters $F$ correspond to nets converging to points in $\beta X$
-- Ultrafilters $U$ correspond to actual points in $\beta X$ 
-- The bilateral weight $Q(F, U) = \{*\}$ when $F \subseteq U$ captures the convergence relationship
+\begin{itemize}
+\item Filters $F$ correspond to nets converging to points in $\beta X$
+\item Ultrafilters $U$ correspond to actual points in $\beta X$ 
+\item The bilateral weight $Q(F, U) = \{*\}$ when $F \subseteq U$ captures the convergence relationship
+\end{itemize}
 
-\textbf{Step 4: Bilateral factorization in $\beta X$.}
+\textbf{Step 4: Bilateral factorization in $\beta X$}
 The bilateral factorization $\varepsilon^* \theta = \rho \star \gamma \star \lambda$ is realized as:
 
 $\lambda_{F,U} : Q(F, U) \to \mathbf{Top}(X, \beta X)$ given by the Stone-\v{C}ech embedding $i : X \hookrightarrow \beta X$
@@ -891,20 +912,24 @@ $\gamma_{F,U} : Q(F, U) \to \mathbf{Top}(\beta X, \beta X)$ given by the identit
 
 $\rho_{F,U} : Q(F, U) \to \mathbf{Top}(\beta X, \{*\})$ given by the unique continuous map $! : \beta X \to \{*\}$
 
-\textbf{Step 5: Universal property verification.}
+\textbf{Step 5: Universal property verification}
 Suppose $(\mathcal{D}, \kappa)$ is another category containing $\mathbf{Top}$ via fully faithful $\kappa : \mathbf{Top} \hookrightarrow \mathcal{D}$ such that $\kappa^* \theta$ admits bilateral factorization through some compact Hausdorff space $K$ with embedding $j : X \to K$.
 
 The bilateral factorization gives:
-- $\lambda'_{F,U} : Q(F, U) \to \mathcal{D}(X, K)$ (via $j$)
-- $\gamma'_{F,U} : Q(F, U) \to \mathcal{D}(K, K)$ (identity on $K$)  
-- $\rho'_{F,U} : Q(F, U) \to \mathcal{D}(K, \{*\})$ (unique map $K \to \{*\}$)
+\begin{itemize}
+\item $\lambda'_{F,U} : Q(F, U) \to \mathcal{D}(X, K)$ (via $j$)
+\item $\gamma'_{F,U} : Q(F, U) \to \mathcal{D}(K, K)$ (identity on $K$)  
+\item $\rho'_{F,U} : Q(F, U) \to \mathcal{D}(K, \{*\})$ (unique map $K \to \{*\}$)
+\end{itemize}
 
 By the universal property of Stone-\v{C}ech compactification, there exists a unique continuous map $\phi : \beta X \to K$ such that $\phi \circ i = j$. This $\phi$ provides the unique functor $F : \widehat{\mathbf{Top}} \to \mathcal{D}$ required by the weighted completion universal property.
 
-\textbf{Step 6: Completeness characterization.}
+\textbf{Step 6: Completeness characterization}
 The bilateral pairing is complete (in the sense of Definition \ref{def:complete-pairing}) if and only if $X$ is compact Hausdorff, because:
-- If $X$ is compact Hausdorff, then $X = \beta X$, so the completion embedding is the identity
-- If $X$ is not compact, then $\beta X$ properly extends $X$, so completion is non-trivial
+\begin{itemize}
+\item If $X$ is compact Hausdorff, then $X = \beta X$, so the completion embedding is the identity
+\item If $X$ is not compact, then $\beta X$ properly extends $X$, so completion is non-trivial
+\end{itemize}
 
 This establishes the correspondence between Stone-\v{C}ech compactification and bilateral weighted completion.
 \end{proof}
@@ -924,10 +949,10 @@ Let $X$ be a $T_0$ space. Its sobrification $\text{Sob}(X)$ arises as the weight
 \end{theorem}
 
 \begin{proof}
-\textbf{Step 1: Well-definedness of bilateral pairing.}
+\textbf{Step 1: Well-definedness of bilateral pairing}
 When $x \in Z$, we have $Q(Z, x) = \{*\}$ and $\mathbf{Top}(Z, \{x\}) = \{\iota_x\}$ where $\iota_x$ is the unique continuous map from $Z$ to the singleton $\{x\}$ (which exists since $x \in Z$). The assignment $\theta_{Z,x}(*) = \iota_x$ is well-defined and natural.
 
-\textbf{Step 2: Bilateral weighted limits and colimits.}
+\textbf{Step 2: Bilateral weighted limits and colimits}
 For each point $x \in X$, the $Q(-, x)$-weighted colimit is:
 $Y(x) = \colim^{Q(-, x)} D = \colim_{\{Z : x \in Z\}} Z$
 
@@ -938,28 +963,30 @@ $Z_{\text{sob}} = \lim^{Q(Z, -)} E = \lim_{\{x : x \in Z\}} \{x\}$
 
 This corresponds to the "generic point" of $Z$ in the sobrification.
 
-\textbf{Step 3: Sobrification as weighted completion.}
+\textbf{Step 3: Sobrification as weighted completion}
 The sobrification $\text{Sob}(X)$ is constructed by adding generic points for irreducible closed sets that lack them. This is precisely the weighted completion structure:
 
-- Original points $x \in X$ correspond to objects $Y(x) = \overline{\{x\}}$
-- Generic points correspond to objects $Z_{\text{sob}}$ for irreducible closed sets $Z$
-- The topology on $\text{Sob}(X)$ makes irreducible closed sets correspond bijectively to points
+\begin{itemize}
+\item Original points $x \in X$ correspond to objects $Y(x) = \overline{\{x\}}$
+\item Generic points correspond to objects $Z_{\text{sob}}$ for irreducible closed sets $Z$
+\item The topology on $\text{Sob}(X)$ makes irreducible closed sets correspond bijectively to points
+\end{itemize}
 
-\textbf{Step 4: Bilateral factorization.}
+\textbf{Step 4: Bilateral factorization}
 The bilateral factorization in $\text{Sob}(X)$ is:
 
-$\lambda_{Z,x} : Q(Z, x) \to \mathbf{Top}(Z, \overline{\{x\}})$ - the inclusion when $x \in Z$
+$\lambda_{Z,x} : Q(Z, x) \to \mathbf{Top}(Z, \overline{\{x\}})$ (the inclusion when $x \in Z$)
 
-$\gamma_{Z,x} : Q(Z, x) \to \mathbf{Top}(\overline{\{x\}}, Z_{\text{sob}})$ - the canonical map from closure to generic point
+$\gamma_{Z,x} : Q(Z, x) \to \mathbf{Top}(\overline{\{x\}}, Z_{\text{sob}})$ (the canonical map from closure to generic point)
 
-$\rho_{Z,x} : Q(Z, x) \to \mathbf{Top}(Z_{\text{sob}}, \{x\})$ - specialization when the generic point specializes to $x$
+$\rho_{Z,x} : Q(Z, x) \to \mathbf{Top}(Z_{\text{sob}}, \{x\})$ (specialization when the generic point specializes to $x$)
 
-\textbf{Step 5: Universal property verification.}
+\textbf{Step 5: Universal property verification}
 The sobrification universal property states: for any continuous map $f : X \to Y$ where $Y$ is sober, there exists a unique continuous map $\tilde{f} : \text{Sob}(X) \to Y$ such that $\tilde{f} \circ \iota = f$.
 
 This follows from the weighted completion universal property: any bilateral factorization of the pairing in a sober space $Y$ must factor through the sobrification because sober spaces have generic points for all irreducible closed sets.
 
-\textbf{Step 6: Completeness characterization.}
+\textbf{Step 6: Completeness characterization}
 The bilateral pairing is complete if and only if $X$ is already sober, because sobriety is precisely the condition that every irreducible closed set has a generic point, which means the bilateral factorization already exists within $X$.
 \end{proof}
 
@@ -978,10 +1005,10 @@ Let $G$ be a residually finite group. The profinite completion $\widehat{G}$ ari
 \end{theorem}
 
 \begin{proof}
-\textbf{Step 1: Well-definedness.}
+\textbf{Step 1: Well-definedness}
 Since $D$ and $E$ are both the inclusion functor $\mathrm{FinQuot}(G) \to \mathbf{Grp}$, we have $\mathbf{Grp}(D(G/N), E(G/M)) = \mathbf{Grp}(G/N, G/M) = Q(G/N, G/M)$. The identity transformation $\theta$ is indeed well-defined and natural.
 
-\textbf{Step 2: Bilateral weighted limits.}
+\textbf{Step 2: Bilateral weighted limits}
 For each finite quotient $G/M$, the $Q(-, G/M)$-weighted colimit is:
 $Y(G/M) = \colim^{Q(-, G/M)} D = \colim^{\mathbf{Grp}(-, G/M)} \text{id}$
 
@@ -992,12 +1019,12 @@ $Z(G/N) = \lim^{Q(G/N, -)} E = \lim^{\mathbf{Grp}(G/N, -)} \text{id}$
 
 This is also isomorphic to $G/N$.
 
-\textbf{Step 3: Profinite completion structure.}
+\textbf{Step 3: Profinite completion structure}
 The weighted completion includes all finite quotients of $G$ plus their "completion." The key insight is that the bilateral structure captures the inverse system of finite quotients:
 
 The profinite completion $\widehat{G} = \lim_{N} G/N$ where the limit is taken over all finite-index normal subgroups $N$, ordered by inclusion.
 
-\textbf{Step 4: Bilateral factorization.}
+\textbf{Step 4: Bilateral factorization}
 In the category containing $\widehat{G}$, the bilateral factorization is:
 
 $\lambda_{G/N, G/M} : \mathbf{Grp}(G/N, G/M) \to \mathbf{Grp}(G/N, \widehat{G})$ via the canonical map $G/N \to \widehat{G}$
@@ -1006,12 +1033,12 @@ $\gamma_{G/N, G/M} : \mathbf{Grp}(G/N, G/M) \to \mathbf{Grp}(\widehat{G}, \wideh
 
 $\rho_{G/N, G/M} : \mathbf{Grp}(G/N, G/M) \to \mathbf{Grp}(\widehat{G}, G/M)$ via the canonical projection $\widehat{G} \to G/M$
 
-\textbf{Step 5: Universal property.}
+\textbf{Step 5: Universal property}
 The profinite completion universal property states: for any continuous homomorphism $G \to H$ where $H$ is a profinite group, there exists a unique continuous homomorphism $\widehat{G} \to H$ extending the original map.
 
 This follows from the weighted completion universal property: any bilateral factorization involving a profinite group must factor through $\widehat{G}$ because profinite groups are precisely the inverse limits of finite groups.
 
-\textbf{Step 6: Completeness characterization.}
+\textbf{Step 6: Completeness characterization}
 The bilateral pairing is complete if and only if $G$ is already profinite, because this means $G = \widehat{G}$ and no further completion is necessary.
 \end{proof}
 
@@ -1029,14 +1056,16 @@ Let $L$ be a distributive lattice. Its canonical extension $L^{\delta}$ arises a
 \end{theorem}
 
 \begin{proof}
-\textbf{Step 1: Well-definedness.}
+\textbf{Step 1: Well-definedness}
 When $F \cap I \neq \emptyset$, there exists some $a \in L$ with $a \in F$ and $a \in I$. This provides a canonical order-preserving map from $F$ to $I$ (viewed as subposets of $L$) via the witness element. The bilateral pairing captures this non-disjointness relationship.
 
-\textbf{Step 2: Bilateral completion and canonical extension.}
+\textbf{Step 2: Bilateral completion and canonical extension}
 The canonical extension $L^{\delta}$ is characterized as the complete lattice generated by $L$ where:
-- Every filter $F$ determines a "closed" element $\bigvee F$ in $L^{\delta}$
-- Every ideal $I$ determines an "open" element $\bigwedge I$ in $L^{\delta}$
-- The original elements of $L$ are both open and closed ("clopen")
+\begin{itemize}
+\item very filter $F$ determines a "closed" element $\bigvee F$ in $L^{\delta}$
+\item Every ideal $I$ determines an "open" element $\bigwedge I$ in $L^{\delta}$
+\item The original elements of $L$ are both open and closed ("clopen")
+\end{itemize}
 
 The bilateral weighted completion captures this structure:
 
@@ -1048,12 +1077,12 @@ For each filter $F$, the weighted limit gives:
 $Z(F) = \lim^{Q(F, -)} E$  
 This corresponds to the open element determined by all ideals non-disjoint from $F$.
 
-\textbf{Step 3: Distributivity requirement.}
+\textbf{Step 3: Distributivity requirement}
 The bilateral factorization exists precisely when $L$ is distributive. This is because distributivity ensures that the filter-ideal interaction has the required bilateral structure:
 
 In a distributive lattice, if $F$ is a filter and $I$ is an ideal with $F \cap I \neq \emptyset$, then there exists a canonical "interaction structure" that allows the bilateral factorization to proceed.
 
-\textbf{Step 4: Bilateral factorization in $L^{\delta}$.}
+\textbf{Step 4: Bilateral factorization in $L^{\delta}$}
 The bilateral factorization in the canonical extension is:
 
 $\lambda_{F,I} : Q(F, I) \to \mathbf{Poset}(F, L^{\delta})$ via the embedding of filters as closed elements
@@ -1062,11 +1091,13 @@ $\gamma_{F,I} : Q(F, I) \to \mathbf{Poset}(L^{\delta}, L^{\delta})$ as the latti
 
 $\rho_{F,I} : Q(F, I) \to \mathbf{Poset}(L^{\delta}, I)$ via the embedding of ideals as open elements
 
-\textbf{Step 5: Completeness characterization.}
+\textbf{Step 5: Completeness characterization}
 The bilateral pairing is complete if and only if $L$ is already a complete Boolean algebra, because:
-- Complete Boolean algebras are their own canonical extensions
-- The bilateral filter-ideal structure already exists completely within $L$
-- No further completion is necessary
+\begin{itemize}
+\item Complete Boolean algebras are their own canonical extensions
+\item The bilateral filter-ideal structure already exists completely within $L$
+\item No further completion is necessary
+\end{itemize}
 \end{proof}
 
 \subsection{Categorical Completions}
@@ -1082,10 +1113,10 @@ Let $F : \C \to \D$ be a functor and $G : \C \to \E$ be a diagram. When the left
 \end{theorem}
 
 \begin{proof}
-\textbf{Step 1: Setup of bilateral pairing.}
+\textbf{Step 1: Setup of bilateral pairing}
 The bilateral pairing captures the structure of left Kan extension: we want to extend the functor $G : \C \to \E$ along $F : \C \to \D$. The bilateral weight $Q(c, d) = \D(F(c), d)$ measures how elements of $\C$ (via $F$) relate to elements of $\D$.
 
-\textbf{Step 2: Kan extension as weighted completion.}
+\textbf{Step 2: Kan extension as weighted completion}
 The weighted completion constructs:
 
 For each $d \in \D$, the $Q(-, d)$-weighted colimit:
@@ -1096,21 +1127,21 @@ By the theory of weighted colimits, this is precisely $\text{Lan}_F G(d)$ when i
 For each $c \in \C$, the $Q(c, -)$-weighted limit:
 $Z(c) = \lim^{Q(c, -)} \text{id}_\D = \lim^{\D(F(c), -)} \text{id}_\D \cong F(c)$
 
-\textbf{Step 3: Bilateral factorization.}
+\textbf{Step 3: Bilateral factorization}
 When $\text{Lan}_F G$ exists, the bilateral factorization is:
 
 $\lambda_{c,d} : \D(F(c), d) \to \E(G(c), \text{Lan}_F G(d))$ via the Kan extension unit
 
 $\gamma_{c,d} : \D(F(c), d) \to \E(\text{Lan}_F G(d), \text{Lan}_F G(d))$ as identity morphisms
 
-$\rho_{c,d} : \D(F(c), d) \to \E(\text{Lan}_F G(d), G(c))$ - this is trivial since we're dealing with a left extension
+$\rho_{c,d} : \D(F(c), d) \to \E(\text{Lan}_F G(d), G(c))$: This is trivial since we're dealing with a left extension.
 
-\textbf{Step 4: Universal property verification.}
+\textbf{Step 4: Universal property verification}
 The Kan extension universal property states: for any functor $H : \D \to \E$ and natural transformation $\alpha : G \Rightarrow H \circ F$, there exists a unique natural transformation $\beta : \text{Lan}_F G \Rightarrow H$ such that $\beta_F \circ \eta = \alpha$.
 
 This follows from the weighted completion universal property: any bilateral factorization involving $H$ must factor through $\text{Lan}_F G$ by the universal property of weighted colimits.
 
-\textbf{Step 5: Virtual extension.}
+\textbf{Step 5: Virtual extension}
 When the classical left Kan extension fails to exist, the weighted completion provides a "virtual" Kan extension that captures the optimal bilateral approximation to the extension problem.
 \end{proof}
 
@@ -1126,18 +1157,24 @@ Furthermore, the bilateral pairing is complete if and only if the classical doma
 The examples above establish:
 
 \textbf{Topological completions:}
-- Stone-\v{C}ech: Complete $\Leftrightarrow$ compact Hausdorff
-- Sobrification: Complete $\Leftrightarrow$ sober
-- Alexandroff: Complete $\Leftrightarrow$ compact
+\begin{itemize}
+\item Stone-\v{C}ech: Complete $\Leftrightarrow$ compact Hausdorff
+\item Sobrification: Complete $\Leftrightarrow$ sober
+\item Alexandroff: Complete $\Leftrightarrow$ compact
+\end{itemize}
 
 \textbf{Algebraic completions:}
-- Profinite: Complete $\Leftrightarrow$ already profinite  
-- Canonical extension: Complete $\Leftrightarrow$ complete Boolean algebra
-- MacNeille: Complete $\Leftrightarrow$ complete lattice
+\begin{itemize}
+\item Profinite: Complete $\Leftrightarrow$ already profinite  
+\item Canonical extension: Complete $\Leftrightarrow$ complete Boolean algebra
+\item MacNeille: Complete $\Leftrightarrow$ complete lattice
+\end{itemize}
 
 \textbf{Categorical completions:}
-- Kan extensions: Complete $\Leftrightarrow$ limits/colimits exist
-- Isbell envelopes: Complete $\Leftrightarrow$ adequate (Garner's sense)
+\begin{itemize}
+\item Kan extensions: Complete $\Leftrightarrow$ limits/colimits exist
+\item Isbell envelopes: Complete $\Leftrightarrow$ adequate (Garner's sense)
+\end{itemize}
 
 Each case follows the pattern: the bilateral structure captures the testing relationship, and completeness corresponds to having sufficient internal structure to avoid needing external completion.
 \end{proof}
@@ -1164,7 +1201,7 @@ Let $X$ be a small $\V$-category and $\C = [X^{\op}, \V]$ be the $\V$-category o
 \item $\theta : Q \Rightarrow \C(Y(-), P)$ is the canonical isomorphism under representability
 \end{itemize}
 
-The **gem** is the presheaf $P$ serving as the bilateral interpolant in the weighted completion factorization.
+The gem is the presheaf $P$ serving as the bilateral interpolant in the weighted completion factorization.
 
 \item A \textbf{CoGem structure} reverses the direction: $({\ast}, X, \Delta_P, Y, Q', \theta')$ where:
 \begin{itemize}
@@ -1295,8 +1332,10 @@ Suppose $P$ satisfies the distributivity property for finite colimits of represe
 The distributivity property implies that $P$ has good behavior with respect to representable presheaves, which means it can be characterized through a bilateral pairing involving the Yoneda embedding.
 
 Specifically, define the bilateral pairing $(X, \{\ast\}, Y, \Delta_P, Q, \theta)$ where:
-- $Q(x, \ast) = P(x)$ (making $Q$ representable by $P$)
-- $\theta_{x,\ast} : P(x) \to [X^{\op}, \V](Y(x), P)$ is the inverse of the Yoneda isomorphism
+\begin{itemize}
+\item $Q(x, \ast) = P(x)$ (making $Q$ representable by $P$)
+\item $\theta_{x,\ast} : P(x) \to [X^{\op}, \V](Y(x), P)$ is the inverse of the Yoneda isomorphism
+\end{itemize}
 
 The distributivity property ensures that this bilateral pairing admits the required weighted completion factorization with $P$ as the bilateral interpolant.
 
@@ -1314,35 +1353,43 @@ Specifically, for the two-element poset $2 = \{0 < 1\}$, frames correspond to ge
 \end{theorem}
 
 \begin{proof}
-\textbf{Step 1: Setup of representable bilateral pairing.}
+\textbf{Step 1: Setup of representable bilateral pairing}
 Consider the bilateral pairing $(2, \{\ast\}, Y, \Delta_F, Q, \theta)$ where:
-- $2 = \{0 < 1\}$ is the two-element poset
-- $Y : 2 \to [2^{\op}, \mathbf{Poset}]$ is the Yoneda embedding
-- $\Delta_F : \{\ast\} \to [2^{\op}, \mathbf{Poset}]$ is constant at a frame $F$
-- $Q : 2^{\op} \otimes \{\ast\} \to \mathbf{Poset}$ given by $Q(i, \ast) = F(i)$ where $F$ viewed as presheaf
-- $\theta : Q \Rightarrow [2^{\op}, \mathbf{Poset}](Y(-), F)$ is the representability isomorphism
+\begin{itemize}
+\item $2 = \{0 < 1\}$ is the two-element poset
+\item $Y : 2 \to [2^{\op}, \mathbf{Poset}]$ is the Yoneda embedding
+\item $\Delta_F : \{\ast\} \to [2^{\op}, \mathbf{Poset}]$ is constant at a frame $F$
+\item $Q : 2^{\op} \otimes \{\ast\} \to \mathbf{Poset}$ given by $Q(i, \ast) = F(i)$ where $F$ viewed as presheaf
+\item $\theta : Q \Rightarrow [2^{\op}, \mathbf{Poset}](Y(-), F)$ is the representability isomorphism
+\end{itemize}
 
-\textbf{Step 2: Weighted completion analysis.}
+\textbf{Step 2: Weighted completion analysis}
 The Yoneda embedding $Y : 2 \to [2^{\op}, \mathbf{Poset}]$ gives:
-- $Y(0)(0) = \{0\}$, $Y(0)(1) = \emptyset$ (the "bottom" presheaf)
-- $Y(1)(0) = \{0, 1\}$, $Y(1)(1) = \{1\}$ (the "top" presheaf)
+\begin{itemize}
+\item $Y(0)(0) = \{0\}$, $Y(0)(1) = \emptyset$ (the "bottom" presheaf)
+\item $Y(1)(0) = \{0, 1\}$, $Y(1)(1) = \{1\}$ (the "top" presheaf)
+\end{itemize}
 
 A frame $F$ corresponds to a presheaf $F : 2^{\op} \to \mathbf{Poset}$ that satisfies:
-- $F(0)$ is the underlying poset of the frame
-- $F(1)$ consists of the "compact" or "finite" elements
-- The frame structure corresponds to the infinite distributive property
+\begin{itemize}
+\item $F(0)$ is the underlying poset of the frame
+\item $F(1)$ consists of the "compact" or "finite" elements
+\item The frame structure corresponds to the infinite distributive property
+\end{itemize}
 
-\textbf{Step 3: Gem characterization.}
+\textbf{Step 3: Gem characterization}
 A presheaf $F \in [2^{\op}, \mathbf{Poset}]$ is a gem if and only if it satisfies the six equivalent conditions from Theorem \ref{thm:gem-equivalences}.
 
 In this context:
-- **Canonical extension facet:** $\int^{i \in 2} F(i) \otimes Y(i) \cong F$
-- **Distributivity facet:** $F$ distributes over finite colimits of representables
+\begin{itemize}
+\item Canonical extension facet: $\int^{i \in 2} F(i) \otimes Y(i) \cong F$
+\item Distributivity facet: $F$ distributes over finite colimits of representables
+\end{itemize}
 
 These conditions translate to the infinite distributive law for frames:
 $$\bigwedge_{j \in J} \bigvee_{i \in I_j} x_{i,j} = \bigvee_{f \in \prod_j I_j} \bigwedge_{j \in J} x_{f(j),j}$$
 
-\textbf{Step 4: Weighted completion provides frame completion.}
+\textbf{Step 4: Weighted completion provides frame completion}
 Given a distributive lattice $L$, the weighted completion of the appropriate bilateral pairing yields the frame completion of $L$ - the free frame generated by $L$.
 
 The bilateral structure captures the interaction between finite elements (represented by $Y(1)$) and the full structure (represented by $Y(0)$), with the infinite distributive law emerging from the weighted completion factorization.
@@ -1355,27 +1402,30 @@ For a distributive lattice $L$, the canonical extension $L^{\delta}$ arises as a
 \end{theorem}
 
 \begin{proof}
-\textbf{Step 1: Representable bilateral pairing.}
+\textbf{Step 1: Representable bilateral pairing}
 The canonical extension corresponds to the bilateral pairing $(\mathrm{Filt}(L), \mathrm{Idl}(L), Y_F, Y_I, Q, \theta)$ where:
-- $\mathrm{Filt}(L)$ and $\mathrm{Idl}(L)$ are the categories of filters and ideals on $L$
-- $Y_F : \mathrm{Filt}(L) \to [\mathrm{Filt}(L)^{\op}, \mathbf{Set}]$ and $Y_I : \mathrm{Idl}(L) \to [\mathrm{Idl}(L)^{\op}, \mathbf{Set}]$ are Yoneda embeddings
-- $Q : \mathrm{Filt}(L)^{\op} \otimes \mathrm{Idl}(L) \to \mathbf{Set}$ represents the non-disjointness relation
-- The bilateral weight is representable by the canonical extension presheaf
+\begin{itemize}
+\item $\mathrm{Filt}(L)$ and $\mathrm{Idl}(L)$ are the categories of filters and ideals on $L$
+\item $Y_F : \mathrm{Filt}(L) \to [\mathrm{Filt}(L)^{\op}, \mathbf{Set}]$ and $Y_I : \mathrm{Idl}(L) \to [\mathrm{Idl}(L)^{\op}, \mathbf{Set}]$ are Yoneda embeddings
+\item $Q : \mathrm{Filt}(L)^{\op} \otimes \mathrm{Idl}(L) \to \mathbf{Set}$ represents the non-disjointness relation
+\item The bilateral weight is representable by the canonical extension presheaf
+\end{itemize}
 
-\textbf{Step 2: Distributivity ensures representability.}
+\textbf{Step 2: Distributivity ensures representability}
 The distributivity of $L$ ensures that the filter-ideal bilateral pairing is representable. This is because distributivity provides the required interaction between filters and ideals that makes the bilateral weight representable by a canonical presheaf.
 
-\textbf{Step 3: Canonical extension as gem.}
+\textbf{Step 3: Canonical extension as gem}
 The canonical extension $L^{\delta}$ satisfies all six equivalent characterizations of gems:
+\begin{itemize}
+\item Weighted completion facet: $L^{\delta}$ is the bilateral interpolant in the filter-ideal weighted completion
+\item Canonical extension facet: The coend formula holds for the filter-ideal structure
+\item Profunctor facet: The Yoneda comparison is an isomorphism
+\item Codensity monad facet: $L^{\delta}$ is fixed by the appropriate codensity monad
+\item Kan extension facet: $L^{\delta}$ satisfies the right Kan extension property
+\item Distributivity facet: $L^{\delta}$ distributes over finite colimits (this is the infinite distributive law)
+\end{itemize}
 
-- **Weighted completion facet:** $L^{\delta}$ is the bilateral interpolant in the filter-ideal weighted completion
-- **Canonical extension facet:** The coend formula holds for the filter-ideal structure
-- **Profunctor facet:** The Yoneda comparison is an isomorphism
-- **Codensity monad facet:** $L^{\delta}$ is fixed by the appropriate codensity monad
-- **Kan extension facet:** $L^{\delta}$ satisfies the right Kan extension property
-- **Distributivity facet:** $L^{\delta}$ distributes over finite colimits (this is the infinite distributive law)
-
-\textbf{Step 4: Completeness characterization.}
+\textbf{Step 4: Completeness characterization}
 The bilateral pairing is complete (yields a complete gem) if and only if $L$ is already a complete Boolean algebra, because complete Boolean algebras are precisely the lattices that are their own canonical extensions.
 \end{proof}
 
@@ -1386,29 +1436,35 @@ A $T_0$ space $X$ is stably compact if and only if it arises as the bilateral in
 \end{theorem}
 
 \begin{proof}
-\textbf{Step 1: DiGem structure for stably compact spaces.}
+\textbf{Step 1: DiGem structure for stably compact spaces}
 A stably compact space corresponds to a DiGem bilateral pairing:
 $(\mathbf{FinDiscSet}, \mathbf{FinDiscSet}, Y, Y, Q, \theta)$ where:
-- $\mathbf{FinDiscSet}$ is the category of finite discrete sets
-- $Y : \mathbf{FinDiscSet} \to [\mathbf{FinDiscSet}^{\op}, \mathbf{Set}]$ is the Yoneda embedding  
-- $Q : \mathbf{FinDiscSet}^{\op} \otimes \mathbf{FinDiscSet} \to \mathbf{Set}$ is bilateral representable
-- The bilateral weight measures point-open incidence in the space
+\begin{itemize}
+\item $\mathbf{FinDiscSet}$ is the category of finite discrete sets
+\item $Y : \mathbf{FinDiscSet} \to [\mathbf{FinDiscSet}^{\op}, \mathbf{Set}]$ is the Yoneda embedding  
+\item $Q : \mathbf{FinDiscSet}^{\op} \otimes \mathbf{FinDiscSet} \to \mathbf{Set}$ is bilateral representable
+\item The bilateral weight measures point-open incidence in the space
+\end{itemize}
 
-\textbf{Step 2: Stable compactness conditions.}
+\textbf{Step 2: Stable compactness conditions}
 A space $X$ is stably compact if:
-- $X$ is compact in its original topology
-- $X$ is sober (every irreducible closed set has a generic point)  
-- The intersection of two compact saturated sets is compact
-- $X$ has a basis of compact open sets
+\begin{itemize}
+\item $X$ is compact in its original topology
+\item $X$ is sober (every irreducible closed set has a generic point)  
+\item The intersection of two compact saturated sets is compact
+\item $X$ has a basis of compact open sets
+\end{itemize}
 
-\textbf{Step 3: DiGem characterization.}
+\textbf{Step 3: DiGem characterization}
 These conditions translate to the DiGem properties:
-- **Bilateral representability:** The point-open incidence is representable by finite observations
-- **Distributivity:** The intersection property corresponds to distributivity over finite colimits
-- **Density:** The basis condition corresponds to bilateral denseness
-- **Compactness:** The compactness conditions correspond to bilateral compactness
+\begin{itemize}
+\item Bilateral representability: The point-open incidence is representable by finite observations
+\item Distributivity: The intersection property corresponds to distributivity over finite colimits
+\item Density: The basis condition corresponds to bilateral denseness
+\item Compactness: The compactness conditions correspond to bilateral compactness
+\end{itemize}
 
-\textbf{Step 4: Weighted completion yields stable compactness.}
+\textbf{Step 4: Weighted completion yields stable compactness}
 The weighted completion of the bilateral pairing yields a stably compact space as the bilateral interpolant, with the topological properties emerging from the representable bilateral structure.
 
 The DiGem structure captures the duality between finite discrete observations and the continuous spatial structure that characterizes stable compactness.
@@ -1438,18 +1494,22 @@ $\text{Rift}_F G$ & Gem$^{\op}$ & Yoneda$^{\op} \to$ Constant$^{\op}$ \\
 For functors $F : \C \to \D$ and $G : \C \to \E$, the left Kan extension $\text{Lan}_F G$ (when it exists) corresponds to a CoGem structure:
 
 The bilateral pairing $(\{\ast\}, \D, \Delta_G, Y_\D, Q, \theta)$ where:
-- $\Delta_G : \{\ast\} \to [\D^{\op}, \E]$ is constant at the extended functor
-- $Y_\D : \D \to [\D^{\op}, \E]$ represents evaluation functors
-- $Q(\ast, d) = \E(G \circ F^{-1}(d), -)$ (representable by the extension)
-- The bilateral factorization provides the Kan extension universal property
+\begin{itemize}
+\item $\Delta_G : \{\ast\} \to [\D^{\op}, \E]$ is constant at the extended functor
+\item $Y_\D : \D \to [\D^{\op}, \E]$ represents evaluation functors
+\item $Q(\ast, d) = \E(G \circ F^{-1}(d), -)$ (representable by the extension)
+\item The bilateral factorization provides the Kan extension universal property
+\end{itemize}
 
 \textbf{Right Kan extensions as Gems:}
 The right Kan extension $\text{Ran}_F G$ corresponds to a Gem structure:
 
 The bilateral pairing $(\D, \{\ast\}, Y_\D, \Delta_G, Q', \theta')$ where:
-- The direction is reversed from the left case
-- The representable weight captures the limiting behavior
-- The weighted completion provides the right Kan extension
+\begin{itemize}
+\item The direction is reversed from the left case
+\item The representable weight captures the limiting behavior
+\item The weighted completion provides the right Kan extension
+\end{itemize}
 
 \textbf{Kan lifts and rifts:}
 These correspond to the opposite category versions of CoGems and Gems respectively, capturing the dual nature of lifting versus extension operations.
@@ -1503,14 +1563,16 @@ preserving the bilateral factorization structure.
 \end{theorem}
 
 \begin{proof}
-\textbf{Step 1: Morphism analysis.}
+\textbf{Step 1: Morphism analysis}
 A morphism $\phi = (u, v, F, \alpha)$ of bilateral pairings consists of:
-- $\V$-functors $u : I' \to I$ and $v : J' \to J$
-- $\V$-functor $F : \C \to \C'$ where $\C, \C'$ are the ambient categories
-- $\V$-natural transformation $\alpha : Q' \Rightarrow Q \circ (u^{\op} \otimes v)$
-- Compatibility conditions: $D' = D \circ u$, $E' = E \circ v$, and $\theta' = F \circ \theta \circ \alpha$
+\begin{itemize}
+\item $\V$-functors $u : I' \to I$ and $v : J' \to J$
+\item $\V$-functor $F : \C \to \C'$ where $\C, \C'$ are the ambient categories
+\item $\V$-natural transformation $\alpha : Q' \Rightarrow Q \circ (u^{\op} \otimes v)$
+\item Compatibility conditions: $D' = D \circ u$, $E' = E \circ v$, and $\theta' = F \circ \theta \circ \alpha$
+\end{itemize}
 
-\textbf{Step 2: Construction of induced morphism.}
+\textbf{Step 2: Construction of induced morphism}
 Let $(\wh{\C}, \varepsilon_\C)$ and $(\wh{\C'}, \varepsilon_{\C'})$ be the weighted completions of $(I, J, D, E, Q, \theta)$ and $(I', J', D', E', Q', \theta')$ respectively.
 
 Consider the composite functor:
@@ -1524,21 +1586,22 @@ Since $\varepsilon_{\C'}^* \theta'$ admits the bilateral factorization by constr
 By the universal property of the weighted completion $(\wh{\C}, \varepsilon_\C)$, there exists a unique $\V$-functor $\wh{F} : \wh{\C} \to \wh{\C'}$ such that:
 $$\wh{F} \circ \varepsilon_\C = \varepsilon_{\C'} \circ F$$
 
-\textbf{Step 3: Definition of $\mathbb{W}(\phi)$.}
+\textbf{Step 3: Definition of $\mathbb{W}(\phi)$}
 Define:
 $$\mathbb{W}(\phi) := (u, v, \wh{F}, \alpha) : \mathbb{W}(I, J, D, E, Q, \theta) \to \mathbb{W}(I', J', D', E', Q', \theta')$$
 
-\textbf{Step 4: Verification of morphism properties.}
+\textbf{Step 4: Verification of morphism properties}
 We need to verify that $\mathbb{W}(\phi)$ satisfies the compatibility conditions for a morphism of bilateral pairings:
-
-- $\varepsilon_\C \circ D' = \varepsilon_\C \circ D \circ u = (\varepsilon_\C \circ D) \circ u$ 
-- $\varepsilon_\C \circ E' = \varepsilon_\C \circ E \circ v = (\varepsilon_\C \circ E) \circ v$ 
-- For the natural transformation compatibility:
+\begin{itemize}
+\item $\varepsilon_\C \circ D' = \varepsilon_\C \circ D \circ u = (\varepsilon_\C \circ D) \circ u$ 
+\item $\varepsilon_\C \circ E' = \varepsilon_\C \circ E \circ v = (\varepsilon_\C \circ E) \circ v$ 
+\item For the natural transformation compatibility:
 $$\varepsilon_{\C'}^* \theta' = \wh{F} \circ (\varepsilon_\C^* \theta) \circ \alpha$$
+\end{itemize}
 
 This follows from the construction of $\wh{F}$ and the compatibility condition $\theta' = F \circ \theta \circ \alpha$.
 
-\textbf{Step 5: Preservation of bilateral factorization.}
+\textbf{Step 5: Preservation of bilateral factorization}
 The bilateral factorizations $\varepsilon_\C^* \theta = \rho \star \gamma \star \lambda$ and $\varepsilon_{\C'}^* \theta' = \rho' \star \gamma' \star \lambda'$ are related by:
 \begin{align}
 \wh{F} \circ \lambda &= \lambda' \circ \alpha \\
@@ -1548,13 +1611,13 @@ The bilateral factorizations $\varepsilon_\C^* \theta = \rho \star \gamma \star 
 
 This follows from the universal property of weighted completion and the naturality of the constructions.
 
-\textbf{Step 6: Functoriality verification.}
+\textbf{Step 6: Functoriality verification}
 We need to verify that $\mathbb{W}$ preserves identities and composition:
 
-**Identities:** For the identity morphism $\text{id}_\theta = (\text{id}_I, \text{id}_J, \text{id}_\C, \text{id}_Q)$, the induced functor $\wh{\text{id}_\C}$ is the identity on $\wh{\C}$ by the universal property. Therefore:
+Identities: For the identity morphism $\text{id}_\theta = (\text{id}_I, \text{id}_J, \text{id}_\C, \text{id}_Q)$, the induced functor $\wh{\text{id}_\C}$ is the identity on $\wh{\C}$ by the universal property. Therefore:
 $$\mathbb{W}(\text{id}_\theta) = (\text{id}_I, \text{id}_J, \text{id}_{\wh{\C}}, \text{id}_Q) = \text{id}_{\mathbb{W}(\theta)}$$
 
-**Composition:** Given composable morphisms $\phi_1 : \theta_1 \to \theta_2$ and $\phi_2 : \theta_2 \to \theta_3$, we need:
+Composition: Given composable morphisms $\phi_1 : \theta_1 \to \theta_2$ and $\phi_2 : \theta_2 \to \theta_3$, we need:
 $$\mathbb{W}(\phi_2 \circ \phi_1) = \mathbb{W}(\phi_2) \circ \mathbb{W}(\phi_1)$$
 
 This follows from the uniqueness in the universal property of weighted completion: both sides satisfy the same universal property with respect to the composite morphism, so they must be equal.
@@ -1592,9 +1655,10 @@ $$\varepsilon_\C(\colim_i X_i) = \colim_i \varepsilon_\C(X_i)$$
 
 \textbf{(3) Monomorphism/Epimorphism preservation:}
 Since $\varepsilon_\C : \C \hookrightarrow \wh{\C}$ is fully faithful, it reflects and preserves both monomorphisms and epimorphisms:
-
-- If $f : X \to Y$ is monic in $\C$, then for any $g, h : Z \to X$ in $\wh{\C}$ with $\varepsilon_\C(f) \circ g = \varepsilon_\C(f) \circ h$, the images $g$ and $h$ must factor through objects in $\C$ (by the structure of $\wh{\C}$), so $g = h$.
-- The epimorphism case is similar by duality.
+\begin{itemize}
+\item If $f : X \to Y$ is monic in $\C$, then for any $g, h : Z \to X$ in $\wh{\C}$ with $\varepsilon_\C(f) \circ g = \varepsilon_\C(f) \circ h$, the images $g$ and $h$ must factor through objects in $\C$ (by the structure of $\wh{\C}$), so $g = h$.
+\item The epimorphism case is similar by duality.
+\end{itemize}
 
 \textbf{(4) Adjunction preservation:}
 Suppose $F : \C \rightleftarrows \D : G$ with $F \dashv G$. Let $\eta : \text{id}_\C \Rightarrow G \circ F$ and $\epsilon : F \circ G \Rightarrow \text{id}_\D$ be the unit and counit.
@@ -1629,7 +1693,7 @@ Every morphism in the original bilateral pairing factors through the cylinder di
 \end{theorem}
 
 \begin{proof}
-\textbf{Step 1: Definition of cylinder classes.}
+\textbf{Step 1: Definition of cylinder classes}
 For each element $q \in Q(i, j)$, the bilateral factorization $\varepsilon_\C^* \theta = \rho \star \gamma \star \lambda$ provides:
 \begin{align}
 \lambda(i, j, q) &: Q(i, j) \to \wh{\C}(\varepsilon_\C D(i), Y(j)) \\
@@ -1644,7 +1708,7 @@ Evaluating at $q \in Q(i, j)$ gives specific morphisms:
 \rho_q &: Z(i) \to \varepsilon_\C E(j)
 \end{align}
 
-\textbf{Step 2: Cylinder factorization property.}
+\textbf{Step 2: Cylinder factorization property}
 For each $q \in Q(i, j)$, the original pairing morphism:
 $$\theta(i, j, q) : Q(i, j) \to \C(D(i), E(j))$$
 
@@ -1662,19 +1726,19 @@ Y(j) \arrow[ur, "\gamma_q", dashed] \arrow[r, dashed] & \varepsilon_\C E(j)
 The factorization is:
 $$(\varepsilon_\C^* \theta)_q = \rho_q \circ \gamma_q \circ \lambda_q$$
 
-\textbf{Step 3: Orthogonality properties.}
+\textbf{Step 3: Orthogonality properties}
 The cylinder classes satisfy orthogonality properties inherited from the weighted completion structure:
 
-**Left-Right orthogonality:** For any $\ell \in \mathcal{L}_Q$ and $r \in \mathcal{R}_Q$, there exists a unique diagonal filler making squares commute, provided by the bilateral interpolant structure.
+Left-Right orthogonality: For any $\ell \in \mathcal{L}_Q$ and $r \in \mathcal{R}_Q$, there exists a unique diagonal filler making squares commute, provided by the bilateral interpolant structure.
 
-**Closure properties:** The classes $\mathcal{L}_Q$ and $\mathcal{R}_Q$ are closed under composition with isomorphisms and satisfy appropriate closure properties inherited from the weighted limit/colimit structure.
+Closure properties: The classes $\mathcal{L}_Q$ and $\mathcal{R}_Q$ are closed under composition with isomorphisms and satisfy appropriate closure properties inherited from the weighted limit/colimit structure.
 
-\textbf{Step 4: Factorization universality.}
+\textbf{Step 4: Factorization universality}
 The cylinder factorization is universal: any other factorization of $(\varepsilon_\C^* \theta)_q$ through intermediate objects factors uniquely through the canonical cylinder diagram $(Y(j), Z(i), \gamma_q)$.
 
 This follows from the universal properties of the weighted limits and colimits used to construct $Y(j)$ and $Z(i)$.
 
-\textbf{Step 5: Systematicity.}
+\textbf{Step 5: Systematicity}
 The cylinder factorization system $(\mathcal{L}_Q, \mathcal{R}_Q)$ organizes all morphisms arising from the bilateral pairing structure, providing geometric insight into the algebraic weighted completion construction.
 \end{proof}
 
@@ -1699,53 +1763,65 @@ Weighted completion satisfies the following correspondence properties:
 \begin{proof}
 \textbf{(1) Classical correspondence verification:}
 
-**Stone-\v{C}ech compactification:** When $X$ is completely regular, the filter-ultrafilter bilateral pairing $(F, U, D, E, Q, \theta)$ is bilaterally dense and compact within the category of topological spaces. By Corollary \ref{cor:internal-weighted completion}, the weighted completion can be realized internally, yielding exactly $\beta X$ with its universal property.
+Stone-\v{C}ech compactification: When $X$ is completely regular, the filter-ultrafilter bilateral pairing $(F, U, D, E, Q, \theta)$ is bilaterally dense and compact within the category of topological spaces. By Corollary \ref{cor:internal-weighted completion}, the weighted completion can be realized internally, yielding exactly $\beta X$ with its universal property.
 
 Specifically:
-- Bilateral denseness: Complete regularity ensures sufficient continuous functions to separate the filter-ultrafilter structure
-- Bilateral compactness: The uniqueness of Stone-\v{C}ech compactification ensures uniqueness of factorizations
-- Internal realization: The compactification $\beta X$ contains all required weighted limits and colimits
+\begin{itemize}
+\item Bilateral denseness: Complete regularity ensures sufficient continuous functions to separate the filter-ultrafilter structure
+\item Bilateral compactness: The uniqueness of Stone-\v{C}ech compactification ensures uniqueness of factorizations
+\item Internal realization: The compactification $\beta X$ contains all required weighted limits and colimits
+\end{itemize}
 
-**Canonical extensions:** When $L$ is distributive, the filter-ideal bilateral pairing is bilaterally dense and compact. The distributivity ensures that:
-- Every filter-ideal interaction admits the required bilateral factorization
-- The canonical extension $L^{\delta}$ can be constructed internally as the weighted completion
-- The infinite distributive law emerges from the bilateral factorization structure
+Canonical extensions: When $L$ is distributive, the filter-ideal bilateral pairing is bilaterally dense and compact. The distributivity ensures that:
+\begin{itemize}
+\item Every filter-ideal interaction admits the required bilateral factorization
+\item The canonical extension $L^{\delta}$ can be constructed internally as the weighted completion
+\item The infinite distributive law emerges from the bilateral factorization structure
+\end{itemize}
 
-**Profinite completions:** When $G$ is residually finite, the finite quotient bilateral pairing is bilaterally dense and compact because:
-- Residual finiteness provides sufficient finite quotients for the bilateral structure
-- The profinite topology ensures the appropriate limit structure
-- The completion $\wh{G} = \lim_{N} G/N$ realizes the weighted completion internally
+Profinite completions: When $G$ is residually finite, the finite quotient bilateral pairing is bilaterally dense and compact because:
+\begin{itemize}
+\item Residual finiteness provides sufficient finite quotients for the bilateral structure
+\item The profinite topology ensures the appropriate limit structure
+\item The completion $\wh{G} = \lim_{N} G/N$ realizes the weighted completion internally
+\end{itemize}
 
 \textbf{(2) Virtual extension analysis:}
 
-**Non-regular spaces:** When $X$ is not completely regular, the filter-ultrafilter bilateral pairing lacks bilateral denseness within $\mathbf{Top}$. However, weighted completion provides virtual Stone-\v{C}ech compactification through presheaf extension:
-- The virtual compactification captures the bilateral approximation
-- Any attempt to compactify $X$ factors through the virtual completion
-- The construction preserves all bilateral relationships that do exist
+Non-regular spaces: When $X$ is not completely regular, the filter-ultrafilter bilateral pairing lacks bilateral denseness within $\mathbf{Top}$. However, weighted completion provides virtual Stone-\v{C}ech compactification through presheaf extension:
+\begin{itemize}
+\item The virtual compactification captures the bilateral approximation
+\item Any attempt to compactify $X$ factors through the virtual completion
+\item The construction preserves all bilateral relationships that do exist
+\end{itemize}
 
-**Non-distributive lattices:** For the diamond lattice $M_3$, the filter-ideal bilateral pairing lacks bilateral denseness due to non-distributivity. Weighted completion provides virtual canonical extension:
-- The virtual extension preserves existing finite meets and joins
-- Infinite operations are added through bilateral completion
-- The construction provides approximation to canonical extension
+Non-distributive lattices: For the diamond lattice $M_3$, the filter-ideal bilateral pairing lacks bilateral denseness due to non-distributivity. Weighted completion provides virtual canonical extension:
+\begin{itemize}
+\item The virtual extension preserves existing finite meets and joins
+\item Infinite operations are added through bilateral completion
+\item The construction provides approximation to canonical extension
+\end{itemize}
 
-**Non-residually finite groups:** When $G$ is not residually finite, the finite quotient bilateral pairing is incomplete. Weighted completion provides virtual profinite completion:
-- The virtual completion captures finite quotient information  
-- The construction provides approximation to profinite structure
-- Homomorphisms to profinite groups factor through the virtual completion
+Non-residually finite groups: When $G$ is not residually finite, the finite quotient bilateral pairing is incomplete. Weighted completion provides virtual profinite completion:
+\begin{itemize}
+\item The virtual completion captures finite quotient information  
+\item The construction provides approximation to profinite structure
+\item Homomorphisms to profinite groups factor through the virtual completion
+\end{itemize}
 
 \textbf{(3) Methodology verification:}
 
 The weighted completion construction applies regardless of bilateral conditions:
 
-**Algorithmic approach:**
+Algorithmic approach:
 1. Formulate completion problem as bilateral pairing $(I, J, D, E, Q, \theta)$
 2. Apply weighted completion construction from Theorem \ref{thm:universal-existence}
 3. Check bilateral denseness/compactness to determine if classical completion exists
 4. Use virtual weighted completion when classical methods insufficient
 
-**Domain independence:** The methodology works across topology, algebra, category theory, and analysis without domain-specific modifications.
+Domain independence: The methodology works across topology, algebra, category theory, and analysis without domain-specific modifications.
 
-**Coherent virtual extension:** When classical completion fails, virtual completion provides principled approximation rather than ad hoc construction.
+Coherent virtual extension: When classical completion fails, virtual completion provides principled approximation rather than ad hoc construction.
 \end{proof}
 
 \subsection{Extension Beyond Gabriel-Ulmer Methodology}
@@ -1767,16 +1843,20 @@ Bilateral weighted completion theory extends Gabriel-Ulmer's Ind/Pro methodology
 \begin{proof}
 \textbf{(1) Weight generalization:}
 
-**Gabriel-Ulmer restriction:** Gabriel-Ulmer methodology applies to:
-- Filtered colimits: $I$ filtered, $J = \{\ast\}$ trivial, weight $Q : I^{\op} \to \V$ 
-- Cofiltered limits: $I = \{\ast\}$ trivial, $J$ cofiltered, weight $Q : J \to \V$
+Gabriel-Ulmer restriction: Gabriel-Ulmer methodology applies to:
+\begin{itemize}
+\item Filtered colimits: $I$ filtered, $J = \{\ast\}$ trivial, weight $Q : I^{\op} \to \V$ 
+\item Cofiltered limits: $I = \{\ast\}$ trivial, $J$ cofiltered, weight $Q : J \to \V$
+\end{itemize}
 
-**Weighted completion generalization:** Bilateral weighted completion handles:
-- Arbitrary small categories $I, J$ (not necessarily filtered/cofiltered)
-- Arbitrary bilateral weights $Q : I^{\op} \otimes J \to \V$ (not necessarily unilateral)
-- Bilateral testing (not just unilateral completion)
+Weighted completion generalization: Bilateral weighted completion handles:
+\begin{itemize}
+\item Arbitrary small categories $I, J$ (not necessarily filtered/cofiltered)
+\item Arbitrary bilateral weights $Q : I^{\op} \otimes J \to \V$ (not necessarily unilateral)
+\item Bilateral testing (not just unilateral completion)
+\end{itemize}
 
-**Correspondence verification:**
+Correspondence verification:
 \begin{align}
 \text{Ind-completion} &\leftrightarrow \text{Weighted completion with filtered } I, \text{ trivial } J \\
 \text{Pro-completion} &\leftrightarrow \text{Weighted completion with trivial } I, \text{ cofiltered } J \\
@@ -1785,37 +1865,43 @@ Bilateral weighted completion theory extends Gabriel-Ulmer's Ind/Pro methodology
 
 \textbf{(2) Virtual morphism composition:}
 
-**Gabriel-Ulmer composition:** Virtual morphisms compose through Ind/Pro structure with coherence conditions for filtered/cofiltered contexts.
+Gabriel-Ulmer composition: Virtual morphisms compose through Ind/Pro structure with coherence conditions for filtered/cofiltered contexts.
 
-**Weighted completion composition:** Virtual morphisms compose through bilateral completion monadic structure:
-- Unit $\eta : \text{id} \Rightarrow \mathbb{W}$ provides embedding of original morphisms
-- Multiplication $\mu : \mathbb{W}^2 \Rightarrow \mathbb{W}$ provides composition
-- Monad laws ensure coherent composition across all bilateral contexts
+Weighted completion composition: Virtual morphisms compose through bilateral completion monadic structure:
+\begin{itemize}
+\item Unit $\eta : \text{id} \Rightarrow \mathbb{W}$ provides embedding of original morphisms
+\item Multiplication $\mu : \mathbb{W}^2 \Rightarrow \mathbb{W}$ provides composition
+\item Monad laws ensure coherent composition across all bilateral contexts
+\end{itemize}
 
-**Generalization:** The monadic structure extends Gabriel-Ulmer composition rules from filtered/cofiltered to arbitrary bilateral weights.
+Generalization: The monadic structure extends Gabriel-Ulmer composition rules from filtered/cofiltered to arbitrary bilateral weights.
 
 \textbf{(3) Accessibility preservation:}
 
-**Gabriel-Ulmer accessibility:** Accessible categories are preserved under Ind/Pro completion because filtered colimits and cofiltered limits preserve accessibility properties.
+Gabriel-Ulmer accessibility: Accessible categories are preserved under Ind/Pro completion because filtered colimits and cofiltered limits preserve accessibility properties.
 
-**Weighted completion accessibility:** The construction through presheaf categories preserves accessibility:
-- Presheaf categories $[\C^{\op}, \V]$ preserve accessibility when $\C$ is accessible
-- Full subcategories generated by accessible objects remain accessible
-- Weighted limits and colimits preserve accessibility under appropriate conditions
+Weighted completion accessibility: The construction through presheaf categories preserves accessibility:
+\begin{itemize}
+\item Presheaf categories $[\C^{\op}, \V]$ preserve accessibility when $\C$ is accessible
+\item Full subcategories generated by accessible objects remain accessible
+\item Weighted limits and colimits preserve accessibility under appropriate conditions
+\end{itemize}
 
-**Extension:** Weighted completion maintains Gabriel-Ulmer accessibility insights while extending to arbitrary bilateral weights.
+Extension: Weighted completion maintains Gabriel-Ulmer accessibility insights while extending to arbitrary bilateral weights.
 
 \textbf{(4) Methodology:}
 
-**Gabriel-Ulmer methodology:** Provides virtual morphism approach for filtered/cofiltered contexts with techniques for handling virtual limits and colimits.
+Gabriel-Ulmer methodology: Provides virtual morphism approach for filtered/cofiltered contexts with techniques for handling virtual limits and colimits.
 
-**Weighted completion methodology:** Extends this to arbitrary bilateral contexts:
-- Universal existence ensures applicability
-- Bilateral conditions provide criteria for classical vs virtual approaches  
-- Monadic organization ensures composition
-- Classical recovery ensures compatibility with Gabriel-Ulmer results
+Weighted completion methodology: Extends this to arbitrary bilateral contexts:
+\begin{itemize}
+\item Universal existence ensures applicability
+\item Bilateral conditions provide criteria for classical vs virtual approaches  
+\item Monadic organization ensures composition
+\item Classical recovery ensures compatibility with Gabriel-Ulmer results
+\end{itemize}
 
-**Correspondence:**
+Correspondence:
 \begin{align}
 \text{Virtual morphisms} &\leftrightarrow \text{Bilateral completion morphisms} \\
 \text{Ind/Pro objects} &\leftrightarrow \text{Bilateral completion objects} \\
@@ -1915,15 +2001,17 @@ Specifically, for a small category $X$, Schoots's extension corresponds to the w
 \end{theorem}
 
 \begin{proof}
-\textbf{Step 1: Translation of Schoots framework.}
+\textbf{Step 1: Translation of Schoots framework}
 
-**Schoots setup:** For a small category $X$, Schoots constructs categorical extensions through:
-- $\text{Filt}(X)$ = category of filtered diagrams in $X$
-- $\text{Cofilt}(X)$ = category of cofiltered diagrams in $X$
-- Evaluation functors $D_{\text{filt}} : \text{Filt}(X) \to [X, \mathbf{Set}]$ and $E_{\text{cofilt}} : \text{Cofilt}(X) \to [X, \mathbf{Set}]$
-- P-density conditions governing when extensions exist
+Schoots setup: For a small category $X$, Schoots constructs categorical extensions through:
+\begin{itemize}
+\item $\text{Filt}(X)$ = category of filtered diagrams in $X$
+\item $\text{Cofilt}(X)$ = category of cofiltered diagrams in $X$
+\item Evaluation functors $D_{\text{filt}} : \text{Filt}(X) \to [X, \mathbf{Set}]$ and $E_{\text{cofilt}} : \text{Cofilt}(X) \to [X, \mathbf{Set}]$
+\item P-density conditions governing when extensions exist
+\end{itemize}
 
-**Bilateral pairing translation:** This corresponds to the bilateral pairing:
+Bilateral pairing translation: This corresponds to the bilateral pairing:
 \begin{align}
 I &= \text{Filt}(X) \\
 J &= \text{Cofilt}(X) \\
@@ -1936,17 +2024,21 @@ Q &: \text{Filt}(X)^{\op} \otimes \text{Cofilt}(X) \to \mathbf{Set} \\
 
 where $\theta$ represents the natural evaluation structure.
 
-\textbf{Step 2: P-density correspondence.}
+\textbf{Step 2: P-density correspondence}
 
-**Schoots P-density conditions:**
-- **Left P-density:** For each cofiltered diagram $G$, the functor $F \mapsto \text{Nat}(F, \lim_L X(G(-), -))$ is representable
-- **Right P-density:** For each filtered diagram $F$, the functor $G \mapsto \text{Nat}(\colim_K X(-, F(-)), G)$ is representable
+Schoots P-density conditions:
+\begin{itemize}
+\item Left P-density: For each cofiltered diagram $G$, the functor $F \mapsto \text{Nat}(F, \lim_L X(G(-), -))$ is representable
+\item Right P-density: For each filtered diagram $F$, the functor $G \mapsto \text{Nat}(\colim_K X(-, F(-)), G)$ is representable
+\end{itemize}
 
-**Bilateral denseness translation:**
-- **Left bilateral denseness:** For each $G \in \text{Cofilt}(X)$, the $Q(-, G)$-weighted colimit of $D_{\text{filt}}$ exists in $[X, \mathbf{Set}]$
-- **Right bilateral denseness:** For each $F \in \text{Filt}(X)$, the $Q(F, -)$-weighted limit of $E_{\text{cofilt}}$ exists in $[X, \mathbf{Set}]$
+Bilateral denseness translation:
+\begin{itemize}
+\item Left bilateral denseness: For each $G \in \text{Cofilt}(X)$, the $Q(-, G)$-weighted colimit of $D_{\text{filt}}$ exists in $[X, \mathbf{Set}]$
+\item Right bilateral denseness: For each $F \in \text{Filt}(X)$, the $Q(F, -)$-weighted limit of $E_{\text{cofilt}}$ exists in $[X, \mathbf{Set}]$
+\end{itemize}
 
-**Equivalence proof:** 
+Equivalence proof: 
 Schoots's left P-density condition states that for cofiltered $G$, the functor:
 $$\text{Filt}(X) \to \mathbf{Set}, \quad F \mapsto \text{Nat}(F, \lim_L X(G(-), -))$$
 is representable. By Yoneda, this is equivalent to the existence of:
@@ -1956,19 +2048,19 @@ This is precisely left bilateral denseness for the bilateral weight $Q$.
 
 Similarly, right P-density corresponds exactly to right bilateral denseness.
 
-\textbf{Step 3: Compactness correspondence.}
+\textbf{Step 3: Compactness correspondence}
 
-**Schoots compactness condition:** Finite accessibility between filtered colimits and cofiltered limits ensures uniqueness of the categorical extension.
+Schoots compactness condition: Finite accessibility between filtered colimits and cofiltered limits ensures uniqueness of the categorical extension.
 
-**Bilateral compactness:** Any two bilateral factorizations of $\theta_{\text{Schoots}}$ are related by unique isomorphism preserving factorization structure.
+Bilateral compactness: Any two bilateral factorizations of $\theta_{\text{Schoots}}$ are related by unique isomorphism preserving factorization structure.
 
-**Equivalence:** The finite accessibility condition in Schoots's framework ensures that different ways of constructing the categorical extension are coherently related, which corresponds exactly to the bilateral compactness condition ensuring uniqueness of weighted completion.
+Equivalence: The finite accessibility condition in Schoots's framework ensures that different ways of constructing the categorical extension are coherently related, which corresponds exactly to the bilateral compactness condition ensuring uniqueness of weighted completion.
 
-\textbf{Step 4: Construction equivalence.}
+\textbf{Step 4: Construction equivalence}
 
-**Schoots construction:** The categorical canonical extension $X^{\delta}$ is constructed by adding formal filtered colimits and cofiltered limits with appropriate coherence conditions.
+Schoots construction: The categorical canonical extension $X^{\delta}$ is constructed by adding formal filtered colimits and cofiltered limits with appropriate coherence conditions.
 
-**Weighted completion construction:** The weighted completion $\wh{[X, \mathbf{Set}]}$ of the bilateral pairing adds the objects:
+Weighted completion construction: The weighted completion $\wh{[X, \mathbf{Set}]}$ of the bilateral pairing adds the objects:
 \begin{align}
 Y(G) &= \colim^{Q(-, G)} D_{\text{filt}} \quad \text{for } G \in \text{Cofilt}(X) \\
 Z(F) &= \lim^{Q(F, -)} E_{\text{cofilt}} \quad \text{for } F \in \text{Filt}(X)
@@ -1976,20 +2068,22 @@ Z(F) &= \lim^{Q(F, -)} E_{\text{cofilt}} \quad \text{for } F \in \text{Filt}(X)
 
 These correspond exactly to the formal limits and colimits in Schoots's construction.
 
-\textbf{Step 5: Universal property correspondence.}
+\textbf{Step 5: Universal property correspondence}
 
-**Schoots universal property:** For any functor $H : X \to \mathcal{D}$ where $\mathcal{D}$ has the required limits and colimits, there exists a unique extension $H^{\delta} : X^{\delta} \to \mathcal{D}$.
+Schoots universal property: For any functor $H : X \to \mathcal{D}$ where $\mathcal{D}$ has the required limits and colimits, there exists a unique extension $H^{\delta} : X^{\delta} \to \mathcal{D}$.
 
-**Weighted completion universal property:** For any bilateral factorization of the pairing in $\mathcal{D}$, there exists a unique functor from the weighted completion to $\mathcal{D}$ preserving the factorization structure.
+Weighted completion universal property: For any bilateral factorization of the pairing in $\mathcal{D}$, there exists a unique functor from the weighted completion to $\mathcal{D}$ preserving the factorization structure.
 
 These universal properties are equivalent by construction.
 
-\textbf{Step 6: Extension.}
+\textbf{Step 6: Extension}
 
 Weighted completion extends Schoots's approach by allowing:
-- Arbitrary bilateral weights beyond filtered/cofiltered restrictions
-- Enrichment over arbitrary symmetric monoidal closed categories
-- Virtual methodology when P-density conditions fail
+\begin{itemize}
+\item Arbitrary bilateral weights beyond filtered/cofiltered restrictions
+\item Enrichment over arbitrary symmetric monoidal closed categories
+\item Virtual methodology when P-density conditions fail
+\end{itemize}
 
 This demonstrates that Schoots's insights are special cases of more general bilateral weighted completion principles.
 \end{proof}
@@ -2005,13 +2099,13 @@ Moreover, the commune factorization corresponds precisely to the bilateral facto
 \end{theorem}
 
 \begin{proof}
-\textbf{Step 1: Translation of commune structure.}
+\textbf{Step 1: Translation of commune structure}
 
-**Pratt's commune setup:** A commune on profunctor $P : A^{\op} \otimes B \to \V$ seeks factorizations:
+Pratt's commune setup: A commune on profunctor $P : A^{\op} \otimes B \to \V$ seeks factorizations:
 $$P \cong A_0 \diamond X_0$$
 where $A_0 : A^{\op} \otimes C \to \V$ and $X_0 : C^{\op} \otimes B \to \V$ for some category $C$, and $\diamond$ denotes profunctor tensor product.
 
-**Bilateral pairing translation:** This corresponds to the bilateral pairing:
+Bilateral pairing translation: This corresponds to the bilateral pairing:
 \begin{align}
 I &= A \\
 J &= B \\
@@ -2023,11 +2117,11 @@ Q &= P : A^{\op} \otimes B \to \V \\
 
 The identity pairing $\theta = \text{id}_P$ represents the structure that $P$ provides its own bilateral testing mechanism.
 
-\textbf{Step 2: Factorization correspondence.}
+\textbf{Step 2: Factorization correspondence}
 
-**Commune factorization:** $P \cong A_0 \diamond X_0$ with intermediate category $C$.
+Commune factorization: $P \cong A_0 \diamond X_0$ with intermediate category $C$.
 
-**Bilateral factorization:** $\text{id}_P = \rho \star \gamma \star \lambda$ where:
+Bilateral factorization: $\text{id}_P = \rho \star \gamma \star \lambda$ where:
 \begin{align}
 \lambda &: P \Rightarrow \wh{\mathcal{D}}(A, Y) \\
 \gamma &: P \Rightarrow \wh{\mathcal{D}}(Y, Z) \\
@@ -2036,7 +2130,7 @@ The identity pairing $\theta = \text{id}_P$ represents the structure that $P$ pr
 
 for functors $Y : B \to \wh{\mathcal{D}}$ and $Z : A \to \wh{\mathcal{D}}$.
 
-**Correspondence verification:** The profunctor tensor $A_0 \diamond X_0$ is defined by:
+Correspondence verification: The profunctor tensor $A_0 \diamond X_0$ is defined by:
 $$P(a, b) = \int^{c \in C} A_0(a, c) \otimes X_0(c, b)$$
 
 The bilateral factorization gives:
@@ -2047,46 +2141,52 @@ $$P(a, b) = \int^{y, z} A_{\text{ext}}(a, y) \otimes X_{\text{ext}}(z, b)$$
 
 where $A_{\text{ext}}$ and $X_{\text{ext}}$ correspond to $A_0$ and $X_0$ in Pratt's factorization.
 
-\textbf{Step 3: Commune conditions correspondence.}
+\textbf{Step 3: Commune conditions correspondence}
 
-**Pratt's didensity condition:** The profunctor $P$ is didense if both:
-- For each $a \in A$, the functor $B \to \V$ given by $b \mapsto P(a, b)$ is representable
-- For each $b \in B$, the functor $A^{\op} \to \V$ given by $a \mapsto P(a, b)$ is representable
+Pratt's didensity condition: The profunctor $P$ is didense if both:
+\begin{itemize}
+\item For each $a \in A$, the functor $B \to \V$ given by $b \mapsto P(a, b)$ is representable
+\item For each $b \in B$, the functor $A^{\op} \to \V$ given by $a \mapsto P(a, b)$ is representable
+\end{itemize}
 
-**Bilateral denseness:** The identity bilateral pairing $\text{id}_P$ is bilaterally dense if:
-- For each $b \in B$, the $P(-, b)$-weighted colimit of $\text{id}_A$ exists
-- For each $a \in A$, the $P(a, -)$-weighted limit of $\text{id}_B$ exists
+Bilateral denseness: The identity bilateral pairing $\text{id}_P$ is bilaterally dense if:
+\begin{itemize}
+\item For each $b \in B$, the $P(-, b)$-weighted colimit of $\text{id}_A$ exists
+\item For each $a \in A$, the $P(a, -)$-weighted limit of $\text{id}_B$ exists
+\end{itemize}
 
-**Equivalence:** Pratt's didensity conditions are precisely the representability conditions needed for the weighted limits and colimits in bilateral denseness. The representability of $b \mapsto P(a, b)$ ensures the $P(a, -)$-weighted limit exists, and similarly for the other direction.
+Equivalence: Pratt's didensity conditions are precisely the representability conditions needed for the weighted limits and colimits in bilateral denseness. The representability of $b \mapsto P(a, b)$ ensures the $P(a, -)$-weighted limit exists, and similarly for the other direction.
 
-**Pratt's extensionality condition:** Different commune factorizations are coherently related.
+Pratt's extensionality condition: Different commune factorizations are coherently related.
 
-**Bilateral compactness:** Different bilateral factorizations are related by unique isomorphism.
+Bilateral compactness: Different bilateral factorizations are related by unique isomorphism.
 
 These conditions correspond because both ensure uniqueness of the factorization structure.
 
-\textbf{Step 4: Universal commune correspondence.}
+\textbf{Step 4: Universal commune correspondence}
 
-**Pratt's universal commune:** The initial commune $\text{Com}(P)$ provides the universal factorization of $P$.
+Pratt's universal commune: The initial commune $\text{Com}(P)$ provides the universal factorization of $P$.
 
-**Weighted completion:** The weighted completion of the identity bilateral pairing provides the universal bilateral factorization of $\text{id}_P$.
+Weighted completion: The weighted completion of the identity bilateral pairing provides the universal bilateral factorization of $\text{id}_P$.
 
-**Equivalence:** Both constructions solve the same universal problem - finding the optimal factorization of the profunctor $P$ through intermediate structure. The universal properties are identical.
+Equivalence: Both constructions solve the same universal problem - finding the optimal factorization of the profunctor $P$ through intermediate structure. The universal properties are identical.
 
-\textbf{Step 5: Isbell envelope specialization.}
+\textbf{Step 5: Isbell envelope specialization}
 
-**Special case:** When $P = C(-, -)$ is the hom-profunctor of a category $C$, Pratt's commune construction recovers the Isbell envelope.
+Special case: When $P = C(-, -)$ is the hom-profunctor of a category $C$, Pratt's commune construction recovers the Isbell envelope.
 
-**Weighted completion specialization:** When the bilateral weight is $Q = C(-, -)$ with identity pairing, weighted completion reduces to the bilateral pairing studied in Theorem \ref{thm:garner-specialization}, recovering the Isbell envelope.
+Weighted completion specialization: When the bilateral weight is $Q = C(-, -)$ with identity pairing, weighted completion reduces to the bilateral pairing studied in Theorem \ref{thm:garner-specialization}, recovering the Isbell envelope.
 
 This confirms the correspondence in the well-understood special case.
 
-\textbf{Step 6: Extension.}
+\textbf{Step 6: Extension}
 
 Weighted completion extends Pratt's commune theory by:
-- Allowing arbitrary bilateral pairings $\theta : Q \Rightarrow \mathcal{C}(D, E)$, not just identity pairings
-- Providing virtual methodology when didensity/extensionality fail
-- Organizing commune theory within the broader bilateral completion framework
+\begin{itemize}
+\item Allowing arbitrary bilateral pairings $\theta : Q \Rightarrow \mathcal{C}(D, E)$, not just identity pairings
+\item Providing virtual methodology when didensity/extensionality fail
+\item Organizing commune theory within the broader bilateral completion framework
+\end{itemize}
 
 This shows that Pratt's insights about profunctor completion are organized within bilateral weighted completion theory.
 \end{proof}
@@ -2102,14 +2202,16 @@ The orthogonality conditions in Garner's framework correspond precisely to bilat
 \end{theorem}
 
 \begin{proof}
-\textbf{Step 1: Translation of cylinder system structure.}
+\textbf{Step 1: Translation of cylinder system structure}
 
-**Garner's cylinder system:** A cylinder factorization system on a category $C$ consists of classes $(L, R)$ of morphisms such that:
-- Every morphism factors as $L$-morphism followed by $R$-morphism
-- $L$ and $R$ are orthogonal: $L \perp R$
-- Appropriate closure and stability conditions
+Garner's cylinder system: A cylinder factorization system on a category $C$ consists of classes $(L, R)$ of morphisms such that:
+\begin{itemize}
+\item Every morphism factors as $L$-morphism followed by $R$-morphism
+\item $L$ and $R$ are orthogonal: $L \perp R$
+\item Appropriate closure and stability conditions
+\end{itemize}
 
-**Bilateral pairing translation:** This corresponds to the bilateral pairing:
+Bilateral pairing translation: This corresponds to the bilateral pairing:
 \begin{align}
 I &= J = C \\
 D &= E = \text{id}_C : C \to C \\
@@ -2119,9 +2221,9 @@ Q &= 1 : C^{\op} \otimes C \to \mathbf{Set} \quad \text{(trivial bilateral weigh
 
 The trivial weight $Q = 1$ means $Q(c, c') = \{*\}$ for all $c, c' \in C$.
 
-\textbf{Step 2: Orthogonality correspondence.}
+\textbf{Step 2: Orthogonality correspondence}
 
-**Garner's orthogonality:** $L \perp R$ means that for any commutative square:
+Garner's orthogonality: $L \perp R$ means that for any commutative square:
 \begin{center}
 \begin{tikzcd}
 A \arrow[r, "f"] \arrow[d, "\ell"'] & B \arrow[d, "r"] \\
@@ -2130,58 +2232,66 @@ C \arrow[r, "g"'] \arrow[ur, dashed, "\exists ! h"] & D
 \end{center}
 with $\ell \in L$ and $r \in R$, there exists a unique diagonal filler $h$.
 
-**Bilateral denseness for trivial weight:** The bilateral pairing with trivial weight $Q = 1$ is bilaterally dense if:
-- For each $c \in C$, the $1$-weighted colimit of $\text{id}_C$ restricted to objects mapping to $c$ exists
-- For each $c \in C$, the $1$-weighted limit of $\text{id}_C$ restricted to objects receiving maps from $c$ exists
+Bilateral denseness for trivial weight: The bilateral pairing with trivial weight $Q = 1$ is bilaterally dense if:
+\begin{itemize}
+\item For each $c \in C$, the $1$-weighted colimit of $\text{id}_C$ restricted to objects mapping to $c$ exists
+\item For each $c \in C$, the $1$-weighted limit of $\text{id}_C$ restricted to objects receiving maps from $c$ exists
+\end{itemize}
 
-**Correspondence:** The orthogonality condition $L \perp R$ provides exactly the structure needed for bilateral denseness with trivial weight:
-- The existence of diagonal fillers corresponds to the weighted colimit/limit constructions
-- The uniqueness corresponds to the bilateral compactness
-- The factorization property corresponds to the bilateral factorization
+Correspondence: The orthogonality condition $L \perp R$ provides exactly the structure needed for bilateral denseness with trivial weight:
+\begin{itemize}
+\item The existence of diagonal fillers corresponds to the weighted colimit/limit constructions
+\item The uniqueness corresponds to the bilateral compactness
+\item The factorization property corresponds to the bilateral factorization
+\end{itemize}
 
-\textbf{Step 3: Cylinder factorization vs bilateral factorization.}
+\textbf{Step 3: Cylinder factorization vs bilateral factorization}
 
-**Garner's cylinder factorization:** Every morphism $f : A \to B$ factors as:
+Garner's cylinder factorization: Every morphism $f : A \to B$ factors as:
 $$A \xrightarrow{\ell} C \xrightarrow{r} B$$
 where $\ell \in L$ and $r \in R$.
 
-**Bilateral factorization with trivial weight:** The bilateral factorization $\theta = \rho \star \gamma \star \lambda$ gives:
+Bilateral factorization with trivial weight: The bilateral factorization $\theta = \rho \star \gamma \star \lambda$ gives:
 \begin{align}
 \lambda_{A,B} &: \{*\} \to \wh{C}(A, Y(B)) \\
 \gamma_{A,B} &: \{*\} \to \wh{C}(Y(B), Z(A)) \\
 \rho_{A,B} &: \{*\} \to \wh{C}(Z(A), B)
 \end{align}
 
-**Correspondence:** The bilateral factorization with trivial weight provides:
+Correspondence: The bilateral factorization with trivial weight provides:
 $$A \xrightarrow{\lambda_*} Y(B) \xrightarrow{\gamma_*} Z(A) \xrightarrow{\rho_*} B$$
 
 The composition $\rho_* \circ \gamma_* \circ \lambda_*$ recovers the original morphism $f$, and this corresponds exactly to Garner's cylinder factorization with:
-- $L$ = left cylinder class = $\{\lambda_* : A \to Y(B)\}$
-- $R$ = right cylinder class = $\{\rho_* : Z(A) \to B\}$
+\begin{itemize}
+\item $L$ = left cylinder class = $\{\lambda_* : A \to Y(B)\}$
+\item $R$ = right cylinder class = $\{\rho_* : Z(A) \to B\}$
+\end{itemize}
 
-\textbf{Step 4: Isbell monad correspondence.}
+\textbf{Step 4: Isbell monad correspondence}
 
-**Garner's Isbell monad:** Applied to categories, provides completion through representable presheaves and copresheaves.
+Garner's Isbell monad: Applied to categories, provides completion through representable presheaves and copresheaves.
 
-**Weighted completion monad specialization:** When restricted to trivial weights and hom-profunctor structure, the weighted completion monad $\mathbb{W}$ reduces to Garner's Isbell monad $\mathcal{I}$, as proven in Theorem \ref{thm:garner-specialization}.
+Weighted completion monad specialization: When restricted to trivial weights and hom-profunctor structure, the weighted completion monad $\mathbb{W}$ reduces to Garner's Isbell monad $\mathcal{I}$, as proven in Theorem \ref{thm:garner-specialization}.
 
 This confirms the correspondence at the monadic level.
 
-\textbf{Step 5: Adequacy vs completeness.}
+\textbf{Step 5: Adequacy vs completeness}
 
-**Garner's adequacy:** A category $C$ is adequate if the Isbell envelope embedding $C \to \mathcal{I}(C)$ is an equivalence.
+Garner's adequacy: A category $C$ is adequate if the Isbell envelope embedding $C \to \mathcal{I}(C)$ is an equivalence.
 
-**Bilateral completeness:** A bilateral pairing is complete if the completion embedding is an equivalence.
+Bilateral completeness: A bilateral pairing is complete if the completion embedding is an equivalence.
 
-**Correspondence:** Under the trivial-weight specialization, adequacy in Garner's sense corresponds exactly to completeness of the bilateral pairing. Both conditions ensure that no further completion is necessary.
+Correspondence: Under the trivial-weight specialization, adequacy in Garner's sense corresponds exactly to completeness of the bilateral pairing. Both conditions ensure that no further completion is necessary.
 
-\textbf{Step 6: Extension.}
+\textbf{Step 6: Extension}
 
 Weighted completion extends Garner's cylinder systems by:
-- Allowing arbitrary bilateral weights $Q : I^{\op} \otimes J \to \V$, not just trivial weights
-- Extending beyond self-indexing $I = J = C$ to arbitrary bilateral indexing
-- Providing virtual methodology for non-orthogonal contexts
-- Organizing cylinder systems within broader bilateral completion framework
+\begin{itemize}
+\item Allowing arbitrary bilateral weights $Q : I^{\op} \otimes J \to \V$, not just trivial weights
+\item Extending beyond self-indexing $I = J = C$ to arbitrary bilateral indexing
+\item Providing virtual methodology for non-orthogonal contexts
+\item Organizing cylinder systems within broader bilateral completion framework
+\end{itemize}
 
 This demonstrates that Garner's geometric insights about factorization systems are special cases of bilateral weighted completion principles.
 \end{proof}
@@ -2197,12 +2307,12 @@ The virtual extension provided by weighted completion extends Riehl's methodolog
 \end{theorem}
 
 \begin{proof}
-\textbf{Step 1: Unilateral bilateral pairing translation.}
+\textbf{Step 1: Unilateral bilateral pairing translation}
 
-**Riehl's weighted limit:** For weight $W : J \to \V$ and diagram $F : J \to C$, the weighted limit $\lim^W F$ (when it exists) is characterized by the universal property:
+Riehl's weighted limit: For weight $W : J \to \V$ and diagram $F : J \to C$, the weighted limit $\lim^W F$ (when it exists) is characterized by the universal property:
 $$C(X, \lim^W F) \cong [J, \V](W, C(X, F(-)))$$
 
-**Bilateral pairing translation:** This corresponds to the bilateral pairing:
+Bilateral pairing translation: This corresponds to the bilateral pairing:
 \begin{align}
 I &= \{*\} \quad \text{(trivial category)} \\
 J &= J \quad \text{(as given)} \\
@@ -2212,9 +2322,9 @@ Q &: \{*\}^{\op} \otimes J \to \V \quad \text{given by } Q(*, j) = W(j) \\
 \theta &: Q \Rightarrow C(D, E) \quad \text{representing the limit cone structure}
 \end{align}
 
-\textbf{Step 2: Weighted limit as bilateral completion.}
+\textbf{Step 2: Weighted limit as bilateral completion}
 
-**Bilateral weighted completion:** For the unilateral bilateral pairing above, the weighted completion constructs:
+Bilateral weighted completion: For the unilateral bilateral pairing above, the weighted completion constructs:
 
 For each $j \in J$, the $Q(-, j) = W(j)$-weighted colimit:
 $$Y(j) = \colim^{W(j)} D = D(*) \quad \text{(trivial since } I \text{ is trivial)}$$
@@ -2224,7 +2334,7 @@ $$Z(*) = \lim^{Q(*, -)} E = \lim^W F$$
 
 This recovers exactly Riehl's weighted limit as the bilateral completion object.
 
-**Bilateral factorization:** The factorization $\theta = \rho \star \gamma \star \lambda$ becomes:
+Bilateral factorization: The factorization $\theta = \rho \star \gamma \star \lambda$ becomes:
 \begin{align}
 \lambda_{*,j} &: W(j) \to C(D(*), Y(j)) = C(D(*), D(*)) \\
 \gamma_{*,j} &: W(j) \to C(Y(j), Z(*)) = C(D(*), \lim^W F) \\
@@ -2233,9 +2343,9 @@ This recovers exactly Riehl's weighted limit as the bilateral completion object.
 
 The morphisms $\rho_{*,j}$ provide exactly the limit cone from $\lim^W F$ to the diagram $F$.
 
-\textbf{Step 3: Weighted colimit correspondence.}
+\textbf{Step 3: Weighted colimit correspondence}
 
-**Riehl's weighted colimit:** For weight $W : I \to \V$ and diagram $F : I \to C$, the weighted colimit $\colim^W F$ corresponds to the bilateral pairing:
+Riehl's weighted colimit: For weight $W : I \to \V$ and diagram $F : I \to C$, the weighted colimit $\colim^W F$ corresponds to the bilateral pairing:
 \begin{align}
 I &= I \quad \text{(as given)} \\
 J &= \{*\} \quad \text{(trivial category)} \\
@@ -2246,40 +2356,50 @@ Q &: I^{\op} \otimes \{*\} \to \V \quad \text{given by } Q(i, *) = W(i) \\
 
 The weighted completion yields $\colim^W F$ as the bilateral completion object, with the bilateral factorization providing the colimit cocone.
 
-\textbf{Step 4: Virtual extension when limits fail.}
+\textbf{Step 4: Virtual extension when limits fail}
 
-**Classical failure:** When the weighted limit $\lim^W F$ fails to exist in $C$ due to insufficient structure.
+Classical failure: When the weighted limit $\lim^W F$ fails to exist in $C$ due to insufficient structure.
 
-**Virtual weighted completion:** Theorem \ref{thm:universal-existence} ensures that the bilateral pairing always admits weighted completion through presheaf extension. This provides a "virtual weighted limit" that:
-- Captures the approximation to the limit structure
-- Satisfies the bilateral factorization property
-- Admits universal property for any other attempted limit construction
+Virtual weighted completion: Theorem \ref{thm:universal-existence} ensures that the bilateral pairing always admits weighted completion through presheaf extension. This provides a "virtual weighted limit" that:
+\begin{itemize}
+\item Captures the approximation to the limit structure
+\item Satisfies the bilateral factorization property
+\item Admits universal property for any other attempted limit construction
+\end{itemize}
 
-**Extension:** This virtual methodology extends Riehl's weighted limit theory to contexts where classical limits don't exist, providing principled completion rather than ad hoc approximation.
+Extension: This virtual methodology extends Riehl's weighted limit theory to contexts where classical limits don't exist, providing principled completion rather than ad hoc approximation.
 
-\textbf{Step 5: Bilateral generalization.}
+\textbf{Step 5: Bilateral generalization}
 
-**Bilateral weighted limits:** Weighted completion generalizes from:
-- **Unilateral weights:** $W : J \to \V$ (Riehl's setting)
-- **Bilateral weights:** $Q : I^{\op} \otimes J \to \V$ (weighted completion setting)
+Bilateral weighted limits: Weighted completion generalizes from:
+\begin{itemize}
+\item Unilateral weights: $W : J \to \V$ (Riehl's setting)
+\item Bilateral weights: $Q : I^{\op} \otimes J \to \V$ (weighted completion setting)
+\end{itemize}
 
-**Richer structure:** Bilateral weights capture interactions between dual categorical structures that unilateral weights cannot express:
-- Filter-ideal interactions in canonical extensions
-- Profinite structure in group completions  
-- Presheaf-copresheaf duality in Isbell envelopes
+Richer structure: Bilateral weights capture interactions between dual categorical structures that unilateral weights cannot express:
+\begin{itemize}
+\item Filter-ideal interactions in canonical extensions
+\item Profinite structure in group completions  
+\item Presheaf-copresheaf duality in Isbell envelopes
+\end{itemize}
 
-**Methodology:** The bilateral framework provides completion methodology that:
-- Recovers Riehl's results as special cases
-- Extends to contexts beyond weighted limits
-- Organizes completion phenomena across mathematics
+Methodology: The bilateral framework provides completion methodology that:
+\begin{itemize}
+\item Recovers Riehl's results as special cases
+\item Extends to contexts beyond weighted limits
+\item Organizes completion phenomena across mathematics
+\end{itemize}
 
-\textbf{Step 6: Theoretical significance.}
+\textbf{Step 6: Theoretical significance}
 
 The correspondence demonstrates that:
-- Riehl's weighted limit theory provides fundamental insights that extend to bilateral contexts
-- Bilateral weighted completion provides the natural generalization
-- Virtual methodology addresses limitations of classical weighted limit theory
-- The bilateral framework unifies weighted limits with other completion phenomena
+\begin{itemize}
+\item Riehl's weighted limit theory provides fundamental insights that extend to bilateral contexts
+\item Bilateral weighted completion provides the natural generalization
+\item Virtual methodology addresses limitations of classical weighted limit theory
+\item The bilateral framework unifies weighted limits with other completion phenomena
+\end{itemize}
 
 This establishes weighted completion as the natural extension of Riehl's foundational work on weighted limits.
 \end{proof}
@@ -2293,11 +2413,11 @@ The virtual morphism methodology in Gabriel-Ulmer theory corresponds precisely t
 \end{theorem}
 
 \begin{proof}
-\textbf{Step 1: Ind-completion correspondence.}
+\textbf{Step 1: Ind-completion correspondence}
 
-**Gabriel-Ulmer Ind-completion:** For a category $C$, the Ind-completion $\text{Ind}(C)$ adds formal filtered colimits. Objects are filtered diagrams in $C$, with morphisms being compatible natural transformations.
+Gabriel-Ulmer Ind-completion: For a category $C$, the Ind-completion $\text{Ind}(C)$ adds formal filtered colimits. Objects are filtered diagrams in $C$, with morphisms being compatible natural transformations.
 
-**Bilateral pairing translation:** This corresponds to the weighted completion of:
+Bilateral pairing translation: This corresponds to the weighted completion of:
 \begin{align}
 I &= \text{Filt} \quad \text{(filtered categories)} \\
 J &= \{*\} \quad \text{(trivial)} \\
@@ -2306,14 +2426,14 @@ E &: \{*\} \to \mathbf{Cat} \quad \text{(constant at } C \text{)} \\
 Q &: \text{Filt}^{\op} \otimes \{*\} \to \mathbf{Set} \quad \text{(filtered colimit weight)} \\
 \end{align}
 
-**Weighted completion yields Ind-completion:** The bilateral completion objects are:
+Weighted completion yields Ind-completion: The bilateral completion objects are:
 $$Y(*) = \colim^{Q(-, *)} D = \text{formal filtered colimits in } C = \text{Ind}(C)$$
 
-\textbf{Step 2: Pro-completion correspondence.}
+\textbf{Step 2: Pro-completion correspondence}
 
-**Gabriel-Ulmer Pro-completion:** The Pro-completion $\text{Pro}(C)$ adds formal cofiltered limits through dual construction.
+Gabriel-Ulmer Pro-completion: The Pro-completion $\text{Pro}(C)$ adds formal cofiltered limits through dual construction.
 
-**Bilateral pairing translation:**
+Bilateral pairing translation:
 \begin{align}
 I &= \{*\} \quad \text{(trivial)} \\
 J &= \text{Cofilt} \quad \text{(cofiltered categories)} \\
@@ -2324,11 +2444,11 @@ Q &: \{*\}^{\op} \otimes \text{Cofilt} \to \mathbf{Set} \quad \text{(cofiltered 
 
 The weighted completion yields $\text{Pro}(C)$ as the bilateral completion.
 
-\textbf{Step 3: Ind-Pro completion correspondence.}
+\textbf{Step 3: Ind-Pro completion correspondence}
 
-**Full Ind-Pro completion:** Gabriel-Ulmer also considers categories with both filtered colimits and cofiltered limits.
+Full Ind-Pro completion: Gabriel-Ulmer also considers categories with both filtered colimits and cofiltered limits.
 
-**Bilateral correspondence:**
+Bilateral correspondence:
 \begin{align}
 I &= \text{Filt} \\
 J &= \text{Cofilt} \\
@@ -2337,13 +2457,13 @@ Q &: \text{Filt}^{\op} \otimes \text{Cofilt} \to \mathbf{Set} \quad \text{(bilat
 
 This provides the full bilateral completion that includes both Ind and Pro structure.
 
-\textbf{Step 4: Virtual morphism correspondence.}
+\textbf{Step 4: Virtual morphism correspondence}
 
-**Gabriel-Ulmer virtual morphisms:** Morphisms in Ind/Pro completions that don't necessarily correspond to actual morphisms in the original category, but provide approximations.
+Gabriel-Ulmer virtual morphisms: Morphisms in Ind/Pro completions that don't necessarily correspond to actual morphisms in the original category, but provide approximations.
 
-**Bilateral completion morphisms:** Morphisms in weighted completions that arise from the bilateral factorization structure, including virtual morphisms when classical morphisms don't exist.
+Bilateral completion morphisms: Morphisms in weighted completions that arise from the bilateral factorization structure, including virtual morphisms when classical morphisms don't exist.
 
-**Correspondence:** Both frameworks provide virtual morphism methodology:
+Correspondence: Both frameworks provide virtual morphism methodology:
 
 Gabriel-Ulmer virtual morphisms compose through:
 $\text{Ind}(C)(F, G) = \colim_{i \in I} \lim_{j \in J} C(F(i), G(j))$
@@ -2353,37 +2473,43 @@ $\wh{C}(Y, Z) = \int^{i,j} Q(i,j) \otimes C(D(i), E(j))$
 
 When specialized to filtered/cofiltered weights, these formulas coincide.
 
-\textbf{Step 5: Accessibility preservation.}
+\textbf{Step 5: Accessibility preservation}
 
-**Gabriel-Ulmer accessibility theory:** Accessible categories are preserved under Ind/Pro completion, providing foundations for locally presentable category theory.
+Gabriel-Ulmer accessibility theory: Accessible categories are preserved under Ind/Pro completion, providing foundations for locally presentable category theory.
 
-**Weighted completion accessibility:** The construction through presheaf categories preserves accessibility properties:
-- If $C$ is accessible, then $[C^{\op}, \mathbf{Set}]$ remains accessible
-- Full subcategories generated by accessible generators preserve accessibility
-- Weighted limits and colimits preserve accessibility under appropriate conditions
+Weighted completion accessibility: The construction through presheaf categories preserves accessibility properties:
+\begin{itemize}
+\item If $C$ is accessible, then $[C^{\op}, \mathbf{Set}]$ remains accessible
+\item Full subcategories generated by accessible generators preserve accessibility
+\item Weighted limits and colimits preserve accessibility under appropriate conditions
+\end{itemize}
 
-**Extension:** Weighted completion extends Gabriel-Ulmer accessibility insights to arbitrary bilateral weights, not just filtered/cofiltered restrictions.
+Extension: Weighted completion extends Gabriel-Ulmer accessibility insights to arbitrary bilateral weights, not just filtered/cofiltered restrictions.
 
-\textbf{Step 6: Extension.}
+\textbf{Step 6: Extension}
 
 Weighted completion extends Gabriel-Ulmer methodology:
 
-**Weight generalization:**
+Weight generalization:
 \begin{align}
 \text{Filtered weights} &\subset \text{Arbitrary bilateral weights} \\
 \text{Cofiltered weights} &\subset \text{Arbitrary bilateral weights} \\
 \text{Filtered/cofiltered pairs} &\subset \text{Arbitrary bilateral structures}
 \end{align}
 
-**Methodological extension:**
-- Gabriel-Ulmer: Virtual completion for filtered/cofiltered contexts
-- Weighted completion: Virtual completion for arbitrary bilateral contexts
-- Same principles, broader applicability
+Methodological extension:
+\begin{itemize}
+\item Gabriel-Ulmer: Virtual completion for filtered/cofiltered contexts
+\item Weighted completion: Virtual completion for arbitrary bilateral contexts
+\item Same principles, broader applicability
+\end{itemize}
 
-**Theoretical relationship:**
-- Gabriel-Ulmer insights about accessible categories extend to bilateral accessibility
-- Virtual morphism composition extends to bilateral completion morphisms
-- Ind/Pro duality becomes special case of bilateral duality
+Theoretical relationship:
+\begin{itemize}
+\item Gabriel-Ulmer insights about accessible categories extend to bilateral accessibility
+\item Virtual morphism composition extends to bilateral completion morphisms
+\item Ind/Pro duality becomes special case of bilateral duality
+\end{itemize}
 
 This demonstrates that Gabriel-Ulmer's insights about categorical completion extend to the broader bilateral framework.
 \end{proof}
@@ -2411,23 +2537,25 @@ These principles demonstrate that bilateral weighted completion theory captures 
 \begin{proof}
 \textbf{Bilateral testing verification:} Each framework correspondence demonstrates bilateral structure:
 
-**Schoots:** Filtered diagrams test against cofiltered diagrams, capturing the dual nature of categorical extension through opposing limit/colimit structures.
+Schoots: Filtered diagrams test against cofiltered diagrams, capturing the dual nature of categorical extension through opposing limit/colimit structures.
 
-**Pratt:** Profunctor structure provides bilateral testing through tensor product factorization, with dual sides of the profunctor providing opposing test perspectives.
+Pratt: Profunctor structure provides bilateral testing through tensor product factorization, with dual sides of the profunctor providing opposing test perspectives.
 
-**Garner:** Left and right cylinder classes provide bilateral testing through orthogonality, with morphisms tested against opposing factorization structures.
+Garner: Left and right cylinder classes provide bilateral testing through orthogonality, with morphisms tested against opposing factorization structures.
 
-**Riehl:** Weights test against diagrams in unilateral fashion, extending to bilateral testing in weighted completion framework.
+Riehl: Weights test against diagrams in unilateral fashion, extending to bilateral testing in weighted completion framework.
 
-**Gabriel-Ulmer:** Filtered and cofiltered structures provide bilateral testing through dual Ind/Pro completion processes.
+Gabriel-Ulmer: Filtered and cofiltered structures provide bilateral testing through dual Ind/Pro completion processes.
 
 \textbf{Factorization verification:} Each framework achieves completion goals through factorization:
+\begin{itemize}
+\item Schoots: P-density conditions ensure factorization through filtered colimits and cofiltered limits
+\item Pratt: Commune factorization $P \cong A_0 \diamond X_0$ through profunctor tensor products
+\item Garner: Cylinder factorization through orthogonal classes $(L, R)$
+\item Riehl: Weighted limit factorization through universal cones
+\item Gabriel-Ulmer: Virtual morphism factorization through Ind/Pro structure
+\end{itemize}
 
-- **Schoots:** P-density conditions ensure factorization through filtered colimits and cofiltered limits
-- **Pratt:** Commune factorization $P \cong A_0 \diamond X_0$ through profunctor tensor products
-- **Garner:** Cylinder factorization through orthogonal classes $(L, R)$
-- **Riehl:** Weighted limit factorization through universal cones
-- **Gabriel-Ulmer:** Virtual morphism factorization through Ind/Pro structure
 
 All correspond to bilateral factorization $\theta = \rho \star \gamma \star \lambda$ in weighted completion.
 
@@ -2449,19 +2577,22 @@ Gabriel-Ulmer & Accessibility & Filtered/cofiltered bilateral denseness \\
 
 \textbf{Virtual extension capability:} Each framework admits virtual extension through weighted completion:
 
-- When P-density fails, weighted completion provides virtual Schoots extension
-- When didensity fails, weighted completion provides virtual commune completion
-- When orthogonality fails, weighted completion provides virtual cylinder completion
-- When weighted limits fail, weighted completion provides virtual limit approximation
-- When accessibility fails, weighted completion provides virtual Ind/Pro completion
+\begin{itemize}
+\item When P-density fails, weighted completion provides virtual Schoots extension
+\item When didensity fails, weighted completion provides virtual commune completion
+\item When orthogonality fails, weighted completion provides virtual cylinder completion
+\item When weighted limits fail, weighted completion provides virtual limit approximation
+\item When accessibility fails, weighted completion provides virtual Ind/Pro completion
+\end{itemize}
 
 \textbf{Monadic organization:} Each framework can be organized through monadic structure:
-
-- Schoots extensions form a monad on categories with filtered/cofiltered structure
-- Pratt communes form a monad on profunctors with identity pairing structure
-- Garner Isbell envelopes form the Isbell monad on small categories
-- Riehl weighted limits form completion monads in appropriate contexts
-- Gabriel-Ulmer Ind/Pro completions form monads on accessible categories
+\begin{itemize}
+\item Schoots extensions form a monad on categories with filtered/cofiltered structure
+\item Pratt communes form a monad on profunctors with identity pairing structure
+\item Garner Isbell envelopes form the Isbell monad on small categories
+\item Riehl weighted limits form completion monads in appropriate contexts
+\item Gabriel-Ulmer Ind/Pro completions form monads on accessible categories
+\end{itemize}
 
 All are special cases of the weighted completion monad $\mathbb{W}$ under appropriate specializations.
 \end{proof}
@@ -2492,43 +2623,43 @@ Bilateral weighted completion theory transforms completion methodology by provid
 3. Check bilateral denseness/compactness to determine classical vs virtual approach
 4. Use framework-specific specialization for domain-specific applications
 
-**Example:** Stone-\v{C}ech compactification methodology transfers to canonical extensions by changing bilateral categories from filters/ultrafilters to filters/ideals while preserving the bilateral completion structure.
+Example: Stone-\v{C}ech compactification methodology transfers to canonical extensions by changing bilateral categories from filters/ultrafilters to filters/ideals while preserving the bilateral completion structure.
 
 \textbf{Technique transfer:} Since all frameworks correspond to weighted completions, techniques translate:
 
-**Gabriel-Ulmer virtual morphisms** $\to$ **Schoots virtual extensions:** The virtual morphism composition techniques from Gabriel-Ulmer theory apply directly to Schoots's categorical extensions because both use filtered/cofiltered bilateral structure.
+Gabriel-Ulmer virtual morphisms $\to$ Schoots virtual extensions: The virtual morphism composition techniques from Gabriel-Ulmer theory apply directly to Schoots's categorical extensions because both use filtered/cofiltered bilateral structure.
 
-**Pratt commune factorization** $\to$ **Garner cylinder factorization:** The profunctor tensor techniques from Pratt's theory illuminate Garner's orthogonality conditions because both involve bilateral factorization structure.
+Pratt commune factorization $\to$ Garner cylinder factorization: The profunctor tensor techniques from Pratt's theory illuminate Garner's orthogonality conditions because both involve bilateral factorization structure.
 
-**Riehl weighted limit universality** $\to$ **General bilateral universality:** The universal property techniques from Riehl's weighted limits extend to arbitrary bilateral contexts through weighted completion universal properties.
+Riehl weighted limit universality $\to$ General bilateral universality: The universal property techniques from Riehl's weighted limits extend to arbitrary bilateral contexts through weighted completion universal properties.
 
 \textbf{Virtual principles:} Weighted completion provides virtual methodology:
 
-**Virtual extension:** When any framework's classical conditions fail, weighted completion provides principled virtual approximation rather than ad hoc workarounds.
+Virtual extension: When any framework's classical conditions fail, weighted completion provides principled virtual approximation rather than ad hoc workarounds.
 
-**Approximation:** Virtual completions provide bilateral approximation in well-defined categorical sense through universal properties.
+Approximation: Virtual completions provide bilateral approximation in well-defined categorical sense through universal properties.
 
-**Coherent composition:** Virtual morphisms compose coherently through weighted completion monadic structure across all frameworks.
+Coherent composition: Virtual morphisms compose coherently through weighted completion monadic structure across all frameworks.
 
 \textbf{Theoretical economy:} Rather than studying multiple independent frameworks, completion theory reduces to:
 
-**Bilateral weight theory:** Study of profunctors $Q : I^{\op} \otimes J \to \V$ and their properties.
+Bilateral weight theory: Study of profunctors $Q : I^{\op} \otimes J \to \V$ and their properties.
 
-**Weighted completion properties:** Universal existence, uniqueness, functoriality, preservation properties.
+Weighted completion properties: Universal existence, uniqueness, functoriality, preservation properties.
 
-**Bilateral condition theory:** Study of bilateral denseness and compactness across different contexts.
+Bilateral condition theory: Study of bilateral denseness and compactness across different contexts.
 
-**Monadic organization:** Study of completion monads and their Eilenberg-Moore categories.
+Monadic organization: Study of completion monads and their Eilenberg-Moore categories.
 
 \textbf{Foundations:} Bilateral weighted completion provides:
 
-**Common language:** All frameworks expressible through bilateral pairing language $(I, J, D, E, Q, \theta)$.
+Common language: All frameworks expressible through bilateral pairing language $(I, J, D, E, Q, \theta)$.
 
-**Construction:** Single weighted completion construction applies across all frameworks.
+Construction: Single weighted completion construction applies across all frameworks.
 
-**Correspondence:** Precise correspondence theorems rather than vague analogies.
+Correspondence: Precise correspondence theorems rather than vague analogies.
 
-**Coherent extension:** Extension to virtual contexts when classical methods fail.
+Coherent extension: Extension to virtual contexts when classical methods fail.
 
 This demonstrates that bilateral weighted completion theory provides unification that reveals structural unity underlying previously disparate mathematical completion phenomena.
 \end{proof}
@@ -2541,7 +2672,7 @@ This correspondence demonstrates that bilateral weighted completion theory provi
 
 This work has established bilateral weighted completion theory as a categorical framework for mathematical completion phenomena. The fundamental construction-weighted completion of bilateral pairings $\theta : Q \Rightarrow C(D,E)$ where bilateral weights $Q : I^{\op} \otimes J \to \V$ govern completion structure-provides methodology for completion problems across diverse mathematical domains.
 
-The Universal Existence Theorem (Theorem \ref{thm:universal-existence}) serves as the cornerstone result, establishing through detailed proof that every bilateral pairing admits a weighted completion via presheaf extension. This theorem ensures that bilateral completion methodology applies broadly across mathematical contexts without domain-specific restrictions, transforming completion theory from a collection of isolated techniques into a unified categorical framework with provable applicability.
+The Existence of Weighted Completions Theorem (Theorem \ref{thm:universal-existence}) serves as the cornerstone result, establishing through detailed proof that every bilateral pairing admits a weighted completion via presheaf extension. This theorem ensures that bilateral completion methodology applies broadly across mathematical contexts without domain-specific restrictions, transforming completion theory from a collection of isolated techniques into a unified categorical framework with provable applicability.
 
 We have established the fundamental completeness properties that characterize when bilateral pairings require no further completion. Through rigorous definitions and complete proofs, we showed that weighted completions always yield complete objects (Theorem \ref{thm:completions-are-complete}), that completing complete objects is trivial (Theorem \ref{thm:idempotency}), and provided multiple equivalent characterizations of complete bilateral pairings (Theorem \ref{thm:completeness-equivalence}). These results demonstrate that bilateral weighted completion behaves as a genuine completion theory with expected fundamental properties.
 
