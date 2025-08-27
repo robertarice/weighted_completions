@@ -100,7 +100,7 @@ We develop \emph{bilateral weighted completion theory} as a categorical framewor
 
 Every bilateral pairing admits a weighted completion, and weighted completions are idempotent---completing a complete structure yields the original structure. The framework naturally encompasses diverse completion phenomena including Stone-\v{C}ech compactification, canonical extensions of distributive lattices \cite{jonsson1951boolean}, profinite group completions \cite{pontryagin1966topological}, Kan extensions \cite{kan1958adjoint}, and Isbell envelopes \cite{isbell1960adequate}. When classical completions fail to exist, the theory provides systematic virtual extensions through categorical methodology.
 
-The weighted completion construction admits monadic organization that extends Gabriel-Ulmer's Ind/Pro methodology \cite{gabriel1971lokal} to arbitrary weights and recovers Garner's Isbell monad \cite{garner2018isbell} as a particular case. We establish correspondence theorems showing that bilateral weighted completions relate to existing frameworks including Schoots's categorical extensions \cite{schoots2015generalising}, Pratt's communes \cite{pratt2010communes}, and Garner's cylinder systems \cite{garner2018cylinder}.
+The weighted completion construction admits monadic organization that extends Gabriel-Ulmer's Ind/Pro methodology \cite{gabriel1971lokal} to arbitrary weights and recovers Garner's Isbell monad \cite{garner2018isbell} as a particular case. We establish correspondence theorems showing that bilateral weighted completions relate to existing frameworks including Schoots's categorical extensions \cite{schoots2015generalising}, Pratt's communes \cite{pratt2010communes}, and Garner's cylinder systems \cite{garner2018isbell}.
 \end{abstract}
 
 \section{Introduction and Motivation}
@@ -139,7 +139,7 @@ This work establishes bilateral weighted completion theory through several key c
 
 \item We establish monadic organization of weighted completion theory. The weighted completion extends to a monad $\mathbb{W}$ on the category of bilateral pairings, and we prove that Garner's Isbell monad emerges as a natural specialization. This monadic structure provides organizational principles for composing completion processes.
 
-\item We provide detailed correspondence theorems showing how bilateral weighted completions relate to existing frameworks including Schoots's categorical extensions \cite{schoots2015generalising}, Pratt's communes \cite{pratt2010communes}, and Garner's cylinder systems \cite{garner2018cylinder}. These correspondences demonstrate that our framework encompasses rather than competes with existing approaches.
+\item We provide detailed correspondence theorems showing how bilateral weighted completions relate to existing frameworks including Schoots's categorical extensions \cite{schoots2015generalising}, Pratt's communes \cite{pratt2010communes}, and Garner's cylinder systems \cite{garner2018isbell}. These correspondences demonstrate that our framework encompasses rather than competes with existing approaches.
 \end{enumerate}
 
 The paper emphasizes weighted completion as the fundamental theory while maintaining complete mathematical rigor throughout. Section 2 develops the core theory of bilateral weighted completions with detailed proofs. Section 3 introduces complete bilateral pairings and establishes completeness properties. Section 4 presents the categorical structure through the weighted completion monad. Section 5 provides examples demonstrating the bilateral framework across mathematical domains, while Section 6 develops gem theory as the case of representable bilateral completions. Section 7 establishes structural properties, Section 8 provides correspondences with existing frameworks, and Section 9 concludes with future directions.
@@ -1749,7 +1749,7 @@ The cylinder factorization system $(\mathcal{L}_Q, \mathcal{R}_Q)$ organizes all
 \end{proof}
 
 \begin{remark}[Connection to Garner's Cylinder Systems]
-This cylinder factorization interpretation provides the geometric realization of weighted completion that connects directly to Garner's cylinder factorization systems \cite{garner2018cylinder}. While the weighted completion monad captures the algebraic structure of bilateral completion, the cylinder factorization reveals the geometric structure of how individual morphisms decompose through completion. Both perspectives are complementary aspects of bilateral weighted completion theory.
+This cylinder factorization interpretation provides the geometric realization of weighted completion that connects directly to Garner's cylinder factorization systems \cite{garner2018isbell}. While the weighted completion monad captures the algebraic structure of bilateral completion, the cylinder factorization reveals the geometric structure of how individual morphisms decompose through completion. Both perspectives are complementary aspects of bilateral weighted completion theory.
 \end{remark}
 
 \subsection{Classical Recovery and Virtual Extension}
@@ -1980,7 +1980,7 @@ Schoots's categorical extensions \cite{schoots2015generalising} & Filtered/cofil
 \addlinespace
 Pratt's communes \cite{pratt2010communes} & Identity bilateral pairings & Didensity/extensionality $\Leftrightarrow$ Bilateral conditions \\
 \addlinespace
-Garner's cylinder systems \cite{garner2018cylinder} & Trivial weights $Q = 1$ & Orthogonality $\Leftrightarrow$ Bilateral denseness \\
+Garner's cylinder systems \cite{garner2018isbell} & Trivial weights $Q = 1$ & Orthogonality $\Leftrightarrow$ Bilateral denseness \\
 \addlinespace
 Riehl's weighted limits \cite{riehl2008weighted} & Classical unilateral restriction & Weighted limits $\Leftrightarrow$ Unilateral weighted completion \\
 \addlinespace
@@ -2192,7 +2192,7 @@ This shows that Pratt's insights about profunctor completion are organized withi
 
 \subsection{Garner's Cylinder Systems}
 
-Richard Garner's cylinder factorization systems \cite{garner2018cylinder} and Isbell monad theory provide approaches to categorical completion through orthogonality and factorization structure.
+Richard Garner's cylinder factorization systems \cite{garner2018isbell} and Isbell monad theory provide approaches to categorical completion through orthogonality and factorization structure.
 
 \begin{theorem}[Garner Cylinder Systems as Trivial-Weight Weighted Completions]\label{thm:garner-cylinder-correspondence}
 Garner's cylinder factorization systems correspond exactly to weighted completions of bilateral pairings with trivial bilateral weights $Q = 1$ and specific orthogonality structure.
@@ -2685,7 +2685,7 @@ The theoretical contributions extend beyond examples to fundamental advances in 
 
 Gem theory emerges as the study of representable bilateral completions, providing categorical foundations for completion through representable structure. The six equivalent facets of gems (Theorem \ref{thm:gem-equivalences}) demonstrate through rigorous proof how apparently disparate characterizations arise naturally as different aspects of the same underlying weighted completion structure with representable bilateral weights. This unification reveals connections between Yoneda embedding \cite{yoneda1954homology}, Kan extensions \cite{kan1958adjoint}, codensity monads, and distributivity properties.
 
-The correspondence theorems with existing frameworks---rigorously proven for Schoots's categorical extensions \cite{schoots2015generalising} (Theorem \ref{thm:schoots-correspondence}), Pratt's communes \cite{pratt2010communes} (Theorem \ref{thm:pratt-correspondence}), Garner's cylinder systems \cite{garner2018cylinder} (Theorem \ref{thm:garner-cylinder-correspondence}), Riehl's weighted limits \cite{riehl2008weighted} (Theorem \ref{thm:riehl-correspondence}), and Gabriel-Ulmer Ind-Pro theory \cite{gabriel1971lokal} (Theorem \ref{thm:gabriel-ulmer-correspondence})---demonstrate that bilateral weighted completion theory encompasses and relates previously independent approaches. Each correspondence reveals common bilateral principles underlying apparently disparate completion phenomena.
+The correspondence theorems with existing frameworks---rigorously proven for Schoots's categorical extensions \cite{schoots2015generalising} (Theorem \ref{thm:schoots-correspondence}), Pratt's communes \cite{pratt2010communes} (Theorem \ref{thm:pratt-correspondence}), Garner's cylinder systems \cite{garner2018isbell} (Theorem \ref{thm:garner-cylinder-correspondence}), Riehl's weighted limits \cite{riehl2008weighted} (Theorem \ref{thm:riehl-correspondence}), and Gabriel-Ulmer Ind-Pro theory \cite{gabriel1971lokal} (Theorem \ref{thm:gabriel-ulmer-correspondence})---demonstrate that bilateral weighted completion theory encompasses and relates previously independent approaches. Each correspondence reveals common bilateral principles underlying apparently disparate completion phenomena.
 
 \subsection{Methodological Transformation}
 
