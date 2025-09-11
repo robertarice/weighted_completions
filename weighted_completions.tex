@@ -96,11 +96,11 @@
 \maketitle
 
 \begin{abstract}
-We develop bilateral weighted completion theory as a categorical framework that provides a unified perspective on certain completion phenomena in mathematics. This approach centers on weighted completion of bilateral pairings $\theta : Q \Rightarrow C(D, E)$, where diagrams $D : I \to C$ and $E : J \to C$ are functors representing the source and target structures, bilateral weights $Q : I^{\mathrm{op}} \otimes J \to V$ measure connection strength between dual testing structures, and the pairing $\theta$ represents the original mathematical relationship to be completed. Completion occurs by finding categories $\widehat{C}$ containing $C$ via fully faithful embedding $\varepsilon_C : C \hookrightarrow \widehat{C}$ (where $\varepsilon_C^*$ denotes lifting structure to the completion) such that the lifted pairing admits factorization $\varepsilon_C^* \theta = \rho \star \gamma \star \lambda$ through bilateral interpolants (the $\star$ operation denotes composition of natural transformations in the enriched setting).
+We develop bilateral weighted completion theory as a categorical framework that may provide a unified perspective on certain completion phenomena in mathematics. This approach centers on weighted completion of bilateral pairings $\theta : Q \Rightarrow C(D, E)$, where diagrams $D : I \to C$ and $E : J \to C$ are functors representing the source and target structures, bilateral weights $Q : I^{\mathrm{op}} \otimes J \to V$ measure connection strength between dual testing structures, and the pairing $\theta$ represents the original mathematical relationship to be completed. Completion occurs by finding categories $\widehat{C}$ containing $C$ via fully faithful embedding $\varepsilon_C : C \hookrightarrow \widehat{C}$ (where $\varepsilon_C^*$ denotes lifting structure to the completion) such that the lifted pairing admits factorization $\varepsilon_C^* \theta = \rho \star \gamma \star \lambda$ through bilateral interpolants (the $\star$ operation denotes composition of natural transformations in the enriched setting).
 
 We prove that every bilateral pairing admits a weighted completion, and establish that weighted completions are idempotent---completing a complete structure yields the original structure. We demonstrate that several completion phenomena can be formulated within this framework, including Stone-\v{C}ech compactification, canonical extensions of distributive lattices, profinite group completions, Kan extensions, and Isbell envelopes. When classical completions fail to exist, the theory offers virtual extensions that may provide useful approximations.
 
-The weighted completion construction admits monadic organization that extends Gabriel-Ulmer's Ind/Pro methodology to arbitrary weights and recovers Garner's Isbell monad as a particular case. We establish correspondence theorems showing how bilateral weighted completions relate to existing frameworks including Schoots's categorical extensions, Pratt's communes, and Garner's cylinder systems.
+The weighted completion construction admits monadic organization that extends Gabriel-Ulmer's Ind/Pro methodology to arbitrary weights and recovers Garner's Isbell monad as a particular case. We establish correspondence theorems showing how bilateral weighted completions relate to existing frameworks including Schoots's categorical extensions, Pratt's communes, and Garner's cylinder systems, suggesting connections between previously disparate approaches to categorical completion.
 \end{abstract}
 
 \section{Introduction and Motivation}
@@ -1946,723 +1946,269 @@ These properties establish bilateral weighted completion as a mathematical theor
 
 \section{Correspondence with Existing Frameworks}
 
-This section establishes precise relationships between bilateral weighted completion theory and existing mathematical frameworks. We demonstrate how several approaches to categorical completion arise as specializations or correspondences within the weighted completion methodology, showing that our framework encompasses rather than competes with established theories.
+This section establishes relationships between bilateral weighted completion theory and existing mathematical frameworks. We demonstrate how certain approaches to categorical completion can be formulated within the weighted completion methodology, while acknowledging the limitations and scope of such correspondences.
 
 \subsection{Framework Correspondence Principle}
 
-\begin{theorem}[Framework Correspondence]\label{thm:framework-unification}
-Several categorical completion frameworks correspond to specializations or restrictions of bilateral weighted completion theory. Specifically, for each existing framework:
+\begin{theorem}[Limited Framework Correspondence]\label{thm:framework-correspondence}
+Several categorical completion frameworks admit formulation within bilateral weighted completion theory under appropriate restrictions and interpretations. Specifically, for certain existing frameworks:
 
 \begin{enumerate}
-\item The framework can be formulated within the bilateral pairing language $(I, J, D, E, Q, \theta)$
-\item The framework's completion constructions correspond to weighted completions of these bilateral pairings
-\item The framework's existence and uniqueness conditions correspond to bilateral denseness and compactness
-\item The framework's universal properties are recovered through weighted completion universal properties
+\item The framework can be reformulated using bilateral pairing language $(I, J, D, E, Q, \theta)$ under suitable constraints
+\item The framework's completion constructions may correspond to weighted completions of these bilateral pairings in specific contexts
+\item The framework's existence and uniqueness conditions may relate to bilateral denseness and compactness under particular interpretations
+\item The framework's universal properties may be recovered through weighted completion universal properties in restricted settings
 \end{enumerate}
 
-This demonstrates that bilateral weighted completion captures organizational principles underlying diverse completion phenomena.
+These correspondences provide one perspective on structural relationships between completion approaches, though they do not claim to capture all aspects of the original frameworks.
 \end{theorem}
 
 \begin{proof}
-We establish this through detailed analysis of frameworks in the subsequent subsections. Each framework correspondence is proven rigorously, showing that bilateral weighted completion provides genuine correspondence rather than superficial analogy.
+We establish these correspondences through detailed analysis in the subsequent subsections. Each correspondence requires careful interpretation of how bilateral structure relates to the original framework, and the limitations of such translations must be acknowledged.
 
-The key insight is that completion frameworks involve bilateral testing between dual categorical structures, which is captured by bilateral weights $Q : I^{\op} \otimes J \to \V$.
+The correspondences suggest possible structural patterns, but bilateral weighted completion should be viewed as one approach among several rather than a universal unifying framework.
 \end{proof}
 
 \begin{center}
 \renewcommand{\arraystretch}{1.4}
 \begin{longtable}{@{}p{3.5cm}p{3.5cm}p{7cm}@{}}
 \toprule
-\textbf{Framework} & \textbf{Weighted Completion Specialization} & \textbf{Bilateral Correspondence} \\
+\textbf{Framework} & \textbf{Bilateral Formulation} & \textbf{Correspondence Limitations} \\
 \midrule
-Schoots's categorical extensions \cite{schoots2015generalising} & Filtered/cofiltered bilateral structure & P-density $\Leftrightarrow$ Bilateral denseness \\
+Schoots's categorical extensions \cite{schoots2015generalising} & Filtered/cofiltered bilateral structure & Requires specific P-density interpretations \\
 \addlinespace
-Pratt's communes \cite{pratt2010communes} & Identity bilateral pairings & Didensity/extensionality $\Leftrightarrow$ Bilateral conditions \\
+Pratt's communes \cite{pratt2010communes} & Identity bilateral pairings & Translation may not preserve all profunctor aspects \\
 \addlinespace
-Garner's cylinder systems \cite{garner2018isbell} & Trivial weights $Q = 1$ & Orthogonality $\Leftrightarrow$ Bilateral denseness \\
+Garner's cylinder systems \cite{garner2018isbell} & Trivial weights $Q = 1$ & Limited to orthogonality contexts \\
 \addlinespace
-Riehl's weighted limits \cite{riehl2008weighted} & Classical unilateral restriction & Weighted limits $\Leftrightarrow$ Unilateral weighted completion \\
+Riehl's weighted limits \cite{riehl2008weighted} & Unilateral restriction & Only captures one-sided limit structure \\
 \addlinespace
-Gabriel-Ulmer Ind-Pro \cite{gabriel1971lokal} & Filtered/cofiltered weight restriction & Virtual morphisms $\Leftrightarrow$ Weighted completion morphisms \\
+Gabriel-Ulmer Ind-Pro \cite{gabriel1971lokal} & Filtered/cofiltered weights & Restricted to accessibility contexts \\
 \bottomrule
 \end{longtable}
 \end{center}
 
 \subsection{Schoots's Categorical Extensions}
 
-Nandi Schoots \cite{schoots2015generalising} developed generalizations of canonical extensions from distributive lattices to arbitrary categories through filtered/cofiltered completion structure.
+Nandi Schoots \cite{schoots2015generalising} developed extensions of canonical extension theory from distributive lattices to arbitrary categories through filtered/cofiltered completion structure.
 
-\begin{theorem}[Schoots-Weighted Completion Correspondence]\label{thm:schoots-correspondence}
-Schoots's categorical canonical extensions correspond exactly to weighted completions of bilateral pairings with filtered/cofiltered indexing structure.
+\begin{theorem}[Schoots-Weighted Completion Relationship]\label{thm:schoots-correspondence}
+Under appropriate interpretations, Schoots's categorical canonical extensions may correspond to weighted completions of bilateral pairings with filtered/cofiltered indexing structure. However, this correspondence requires careful translation and may not preserve all aspects of Schoots's original framework.
 
-Specifically, for a small category $X$, Schoots's extension corresponds to the weighted completion of the bilateral pairing $(\text{Filt}(X), \text{Cofilt}(X), D_{\text{filt}}, E_{\text{cofilt}}, Q_{\text{Schoots}}, \theta_{\text{Schoots}})$.
+Specifically, for a small category $X$, certain cases of Schoots's extension may relate to the weighted completion of the bilateral pairing $(\text{Filt}(X), \text{Cofilt}(X), D_{\text{filt}}, E_{\text{cofilt}}, Q_{\text{Schoots}}, \theta_{\text{Schoots}})$ under suitable conditions.
 \end{theorem}
 
 \begin{proof}
-\textbf{Step 1: Translation of Schoots framework}
+\textbf{Step 1: Attempted translation of Schoots framework}
 
-Schoots setup: For a small category $X$, Schoots constructs categorical extensions through:
+Schoots's approach involves:
 \begin{itemize}
 \item $\text{Filt}(X)$ = category of filtered diagrams in $X$
 \item $\text{Cofilt}(X)$ = category of cofiltered diagrams in $X$
-\item Evaluation functors $D_{\text{filt}} : \text{Filt}(X) \to [X, \mathbf{Set}]$ and $E_{\text{cofilt}} : \text{Cofilt}(X) \to [X, \mathbf{Set}]$
-\item P-density conditions governing when extensions exist
+\item Evaluation functors and P-density conditions
 \end{itemize}
 
-Bilateral pairing translation: This corresponds to the bilateral pairing:
-\begin{align}
-I &= \text{Filt}(X) \\
-J &= \text{Cofilt}(X) \\
-D &= D_{\text{filt}} : \text{Filt}(X) \to [X, \mathbf{Set}] \\
-E &= E_{\text{cofilt}} : \text{Cofilt}(X) \to [X, \mathbf{Set}] \\
-Q &: \text{Filt}(X)^{\op} \otimes \text{Cofilt}(X) \to \mathbf{Set} \\
-&\quad Q(F, G) = \text{Nat}(\colim_K X(-, F(-)), \lim_L X(G(-), -)) \\
-\theta &: Q \Rightarrow [X, \mathbf{Set}](D_{\text{filt}}, E_{\text{cofilt}})
-\end{align}
+This can be formulated as a bilateral pairing, though the translation requires interpretation of how P-density conditions relate to bilateral structure.
 
-where $\theta$ represents the natural evaluation structure.
+\textbf{Step 2: P-density and bilateral denseness relationship}
 
-\textbf{Step 2: P-density correspondence}
-
-Schoots P-density conditions:
+Schoots's P-density conditions may correspond to bilateral denseness under specific interpretations:
 \begin{itemize}
-\item Left P-density: For each cofiltered diagram $G$, the functor $F \mapsto \text{Nat}(F, \lim_L X(G(-), -))$ is representable
-\item Right P-density: For each filtered diagram $F$, the functor $G \mapsto \text{Nat}(\colim_K X(-, F(-)), G)$ is representable
+\item Left P-density may relate to left bilateral denseness for certain weight structures
+\item Right P-density may relate to right bilateral denseness under particular constraints
 \end{itemize}
 
-Bilateral denseness translation:
+However, this correspondence depends on how one interprets the relationship between P-density and bilateral weight structure, and alternative interpretations are possible.
+
+\textbf{Step 3: Limitations of correspondence}
+
+The correspondence has several limitations:
 \begin{itemize}
-\item Left bilateral denseness: For each $G \in \text{Cofilt}(X)$, the $Q(-, G)$-weighted colimit of $D_{\text{filt}}$ exists in $[X, \mathbf{Set}]$
-\item Right bilateral denseness: For each $F \in \text{Filt}(X)$, the $Q(F, -)$-weighted limit of $E_{\text{cofilt}}$ exists in $[X, \mathbf{Set}]$
+\item P-density conditions may capture aspects not fully expressed by bilateral denseness
+\item Schoots's accessibility requirements may not translate directly to bilateral conditions
+\item The categorical extension construction may involve subtleties not captured by weighted completion
 \end{itemize}
 
-Equivalence proof: 
-Schoots's left P-density condition states that for cofiltered $G$, the functor:
-$$\text{Filt}(X) \to \mathbf{Set}, \quad F \mapsto \text{Nat}(F, \lim_L X(G(-), -))$$
-is representable. By Yoneda, this is equivalent to the existence of:
-$$\colim^{Q(-, G)} D_{\text{filt}} \quad \text{in } [X, \mathbf{Set}]$$
+\textbf{Step 4: Scope of relationship}
 
-This is precisely left bilateral denseness for the bilateral weight $Q$.
-
-Similarly, right P-density corresponds exactly to right bilateral denseness.
-
-\textbf{Step 3: Compactness correspondence}
-
-Schoots compactness condition: Finite accessibility between filtered colimits and cofiltered limits ensures uniqueness of the categorical extension.
-
-Bilateral compactness: Any two bilateral factorizations of $\theta_{\text{Schoots}}$ are related by unique isomorphism preserving factorization structure.
-
-Equivalence: The finite accessibility condition in Schoots's framework ensures that different ways of constructing the categorical extension are coherently related, which corresponds exactly to the bilateral compactness condition ensuring uniqueness of weighted completion.
-
-\textbf{Step 4: Construction equivalence}
-
-Schoots construction: The categorical canonical extension $X^{\delta}$ is constructed by adding formal filtered colimits and cofiltered limits with appropriate coherence conditions.
-
-Weighted completion construction: The weighted completion $\wh{[X, \mathbf{Set}]}$ of the bilateral pairing adds the objects:
-\begin{align}
-Y(G) &= \colim^{Q(-, G)} D_{\text{filt}} \quad \text{for } G \in \text{Cofilt}(X) \\
-Z(F) &= \lim^{Q(F, -)} E_{\text{cofilt}} \quad \text{for } F \in \text{Filt}(X)
-\end{align}
-
-These correspond exactly to the formal limits and colimits in Schoots's construction.
-
-\textbf{Step 5: Universal property correspondence}
-
-Schoots universal property: For any functor $H : X \to \mathcal{D}$ where $\mathcal{D}$ has the required limits and colimits, there exists a unique extension $H^{\delta} : X^{\delta} \to \mathcal{D}$.
-
-Weighted completion universal property: For any bilateral factorization of the pairing in $\mathcal{D}$, there exists a unique functor from the weighted completion to $\mathcal{D}$ preserving the factorization structure.
-
-These universal properties are equivalent by construction.
-
-\textbf{Step 6: Extension}
-
-Weighted completion extends Schoots's approach by allowing:
-\begin{itemize}
-\item Arbitrary bilateral weights beyond filtered/cofiltered restrictions
-\item Enrichment over arbitrary symmetric monoidal closed categories
-\item Virtual methodology when P-density conditions fail
-\end{itemize}
-
-This demonstrates that Schoots's insights are special cases of more general bilateral weighted completion principles.
+The relationship should be understood as suggesting possible structural connections rather than claiming complete equivalence. Bilateral weighted completion provides one perspective on Schoots's work, while acknowledging that other perspectives may be equally valid or more appropriate in specific contexts.
 \end{proof}
 
 \subsection{Pratt's Communes}
 
-Vaughan Pratt's communes \cite{pratt2010communes} generalize Isbell envelopes through arbitrary profunctor structure, providing completion through tensor product factorization.
+Vaughan Pratt's communes \cite{pratt2010communes} approach completion through profunctor factorization and tensor product structure.
 
-\begin{theorem}[Pratt Communes as Identity Weighted Completions]\label{thm:pratt-correspondence}
-Pratt's communes correspond exactly to weighted completions of identity bilateral pairings $\theta = \text{id}_P : P \Rightarrow P$ where the bilateral weight $P : A^{\op} \otimes B \to \V$ is the profunctor itself.
+\begin{theorem}[Pratt Communes as Special Bilateral Cases]\label{thm:pratt-correspondence}
+Under specific conditions, Pratt's communes may correspond to weighted completions of identity bilateral pairings $\theta = \text{id}_P : P \Rightarrow P$ where the bilateral weight $P : A^{\op} \otimes B \to \V$ is the profunctor itself.
 
-Moreover, the commune factorization corresponds precisely to the bilateral factorization in weighted completion.
+This correspondence provides one way to understand commune structure within bilateral completion theory, though it may not capture all aspects of Pratt's original formulation.
 \end{theorem}
 
 \begin{proof}
-\textbf{Step 1: Translation of commune structure}
+\textbf{Step 1: Translation attempt}
 
-Pratt's commune setup: A commune on profunctor $P : A^{\op} \otimes B \to \V$ seeks factorizations:
-$$P \cong A_0 \diamond X_0$$
-where $A_0 : A^{\op} \otimes C \to \V$ and $X_0 : C^{\op} \otimes B \to \V$ for some category $C$, and $\diamond$ denotes profunctor tensor product.
+A commune on profunctor $P : A^{\op} \otimes B \to \V$ seeks factorizations $P \cong A_0 \diamond X_0$. This can be formulated as a bilateral pairing with identity structure, though this translation involves interpretative choices.
 
-Bilateral pairing translation: This corresponds to the bilateral pairing:
-\begin{align}
-I &= A \\
-J &= B \\
-D &= \text{id}_A : A \to A \\
-E &= \text{id}_B : B \to B \\
-Q &= P : A^{\op} \otimes B \to \V \\
-\theta &= \text{id}_P : P \Rightarrow P
-\end{align}
+\textbf{Step 2: Correspondence analysis}
 
-The identity pairing $\theta = \text{id}_P$ represents the structure that $P$ provides its own bilateral testing mechanism.
-
-\textbf{Step 2: Factorization correspondence}
-
-Commune factorization: $P \cong A_0 \diamond X_0$ with intermediate category $C$.
-
-Bilateral factorization: $\text{id}_P = \rho \star \gamma \star \lambda$ where:
-\begin{align}
-\lambda &: P \Rightarrow \wh{\mathcal{D}}(A, Y) \\
-\gamma &: P \Rightarrow \wh{\mathcal{D}}(Y, Z) \\
-\rho &: P \Rightarrow \wh{\mathcal{D}}(Z, B)
-\end{align}
-
-for functors $Y : B \to \wh{\mathcal{D}}$ and $Z : A \to \wh{\mathcal{D}}$.
-
-Correspondence verification: The profunctor tensor $A_0 \diamond X_0$ is defined by:
-$$P(a, b) = \int^{c \in C} A_0(a, c) \otimes X_0(c, b)$$
-
-The bilateral factorization gives:
-$$P(a, b) = \int^{y \in Y, z \in Z} \wh{\mathcal{D}}(A(a), Y(y)) \otimes \wh{\mathcal{D}}(Y(y), Z(z)) \otimes \wh{\mathcal{D}}(Z(z), B(b))$$
-
-By composition in $\wh{\mathcal{D}}$, this simplifies to:
-$$P(a, b) = \int^{y, z} A_{\text{ext}}(a, y) \otimes X_{\text{ext}}(z, b)$$
-
-where $A_{\text{ext}}$ and $X_{\text{ext}}$ correspond to $A_0$ and $X_0$ in Pratt's factorization.
-
-\textbf{Step 3: Commune conditions correspondence}
-
-Pratt's didensity condition: The profunctor $P$ is didense if both:
+The commune factorization may correspond to bilateral factorization under specific conditions:
 \begin{itemize}
-\item For each $a \in A$, the functor $B \to \V$ given by $b \mapsto P(a, b)$ is representable
-\item For each $b \in B$, the functor $A^{\op} \to \V$ given by $a \mapsto P(a, b)$ is representable
+\item Didensity conditions may relate to bilateral denseness for identity pairings
+\item Extensionality may correspond to bilateral compactness under particular interpretations
 \end{itemize}
 
-Bilateral denseness: The identity bilateral pairing $\text{id}_P$ is bilaterally dense if:
+\textbf{Step 3: Translation limitations}
+
+The correspondence faces limitations:
 \begin{itemize}
-\item For each $b \in B$, the $P(-, b)$-weighted colimit of $\text{id}_A$ exists
-\item For each $a \in A$, the $P(a, -)$-weighted limit of $\text{id}_B$ exists
+\item Profunctor tensor products involve structure that may not be fully captured by bilateral completion
+\item Commune theory's geometric interpretations may not translate directly
+\item The identity pairing restriction may not encompass all commune applications
 \end{itemize}
 
-Equivalence: Pratt's didensity conditions are precisely the representability conditions needed for the weighted limits and colimits in bilateral denseness. The representability of $b \mapsto P(a, b)$ ensures the $P(a, -)$-weighted limit exists, and similarly for the other direction.
+\textbf{Step 4: Interpretative nature}
 
-Pratt's extensionality condition: Different commune factorizations are coherently related.
-
-Bilateral compactness: Different bilateral factorizations are related by unique isomorphism.
-
-These conditions correspond because both ensure uniqueness of the factorization structure.
-
-\textbf{Step 4: Universal commune correspondence}
-
-Pratt's universal commune: The initial commune $\text{Com}(P)$ provides the universal factorization of $P$.
-
-Weighted completion: The weighted completion of the identity bilateral pairing provides the universal bilateral factorization of $\text{id}_P$.
-
-Equivalence: Both constructions solve the same universal problem - finding the optimal factorization of the profunctor $P$ through intermediate structure. The universal properties are identical.
-
-\textbf{Step 5: Isbell envelope specialization}
-
-Special case: When $P = C(-, -)$ is the hom-profunctor of a category $C$, Pratt's commune construction recovers the Isbell envelope.
-
-Weighted completion specialization: When the bilateral weight is $Q = C(-, -)$ with identity pairing, weighted completion reduces to the bilateral pairing studied in Theorem \ref{thm:garner-specialization}, recovering the Isbell envelope.
-
-This confirms the correspondence in the well-understood special case.
-
-\textbf{Step 6: Extension}
-
-Weighted completion extends Pratt's commune theory by:
-\begin{itemize}
-\item Allowing arbitrary bilateral pairings $\theta : Q \Rightarrow \mathcal{C}(D, E)$, not just identity pairings
-\item Providing virtual methodology when didensity/extensionality fail
-\item Organizing commune theory within the broader bilateral completion framework
-\end{itemize}
-
-This shows that Pratt's insights about profunctor completion are organized within bilateral weighted completion theory.
+This correspondence should be understood as one possible relationship between the frameworks rather than a definitive equivalence. Other formulations of the relationship may be equally valid or more appropriate depending on context.
 \end{proof}
 
 \subsection{Garner's Cylinder Systems}
 
-Richard Garner's cylinder factorization systems \cite{garner2018isbell} and Isbell monad theory provide approaches to categorical completion through orthogonality and factorization structure.
+Richard Garner's cylinder factorization systems \cite{garner2018isbell} and Isbell monad theory provide approaches to completion through orthogonality and factorization.
 
-\begin{theorem}[Garner Cylinder Systems as Trivial-Weight Weighted Completions]\label{thm:garner-cylinder-correspondence}
-Garner's cylinder factorization systems correspond exactly to weighted completions of bilateral pairings with trivial bilateral weights $Q = 1$ and specific orthogonality structure.
+\begin{theorem}[Garner Cylinder Systems and Trivial Weights]\label{thm:garner-cylinder-correspondence}
+In certain contexts, Garner's cylinder factorization systems may relate to weighted completions of bilateral pairings with trivial bilateral weights $Q = 1$ and specific orthogonality structure.
 
-The orthogonality conditions in Garner's framework correspond precisely to bilateral denseness conditions for trivial-weight bilateral pairings.
+The orthogonality conditions in Garner's framework may correspond to bilateral denseness conditions for trivial-weight bilateral pairings under appropriate interpretations, though this relationship has limitations.
 \end{theorem}
 
 \begin{proof}
-\textbf{Step 1: Translation of cylinder system structure}
+\textbf{Step 1: Attempted correspondence}
 
-Garner's cylinder system: A cylinder factorization system on a category $C$ consists of classes $(L, R)$ of morphisms such that:
+Garner's cylinder systems involve orthogonal classes $(L, R)$ of morphisms. This can be formulated using trivial bilateral weights, though the translation requires careful interpretation of how orthogonality relates to bilateral structure.
+
+\textbf{Step 2: Orthogonality and bilateral conditions}
+
+The relationship between orthogonality and bilateral denseness may hold under specific conditions:
 \begin{itemize}
-\item Every morphism factors as $L$-morphism followed by $R$-morphism
-\item $L$ and $R$ are orthogonal: $L \perp R$
-\item Appropriate closure and stability conditions
+\item Orthogonality $L \perp R$ may correspond to bilateral denseness for trivial weights in certain cases
+\item Factorization properties may relate to bilateral factorization under particular constraints
 \end{itemize}
 
-Bilateral pairing translation: This corresponds to the bilateral pairing:
-\begin{align}
-I &= J = C \\
-D &= E = \text{id}_C : C \to C \\
-Q &= 1 : C^{\op} \otimes C \to \mathbf{Set} \quad \text{(trivial bilateral weight)} \\
-\theta &: 1 \Rightarrow C(-, -) \quad \text{(unique natural transformation)}
-\end{align}
+\textbf{Step 3: Scope limitations}
 
-The trivial weight $Q = 1$ means $Q(c, c') = \{*\}$ for all $c, c' \in C$.
-
-\textbf{Step 2: Orthogonality correspondence}
-
-Garner's orthogonality: $L \perp R$ means that for any commutative square:
-\begin{center}
-\begin{tikzcd}
-A \arrow[r, "f"] \arrow[d, "\ell"'] & B \arrow[d, "r"] \\
-C \arrow[r, "g"'] \arrow[ur, dashed, "\exists ! h"] & D
-\end{tikzcd}
-\end{center}
-with $\ell \in L$ and $r \in R$, there exists a unique diagonal filler $h$.
-
-Bilateral denseness for trivial weight: The bilateral pairing with trivial weight $Q = 1$ is bilaterally dense if:
+The correspondence is limited by:
 \begin{itemize}
-\item For each $c \in C$, the $1$-weighted colimit of $\text{id}_C$ restricted to objects mapping to $c$ exists
-\item For each $c \in C$, the $1$-weighted limit of $\text{id}_C$ restricted to objects receiving maps from $c$ exists
+\item Orthogonality involves geometric structure that may not be fully captured by bilateral weights
+\item Cylinder systems may have applications beyond what bilateral completion addresses
+\item The trivial weight restriction significantly constrains the bilateral framework
 \end{itemize}
 
-Correspondence: The orthogonality condition $L \perp R$ provides exactly the structure needed for bilateral denseness with trivial weight:
-\begin{itemize}
-\item The existence of diagonal fillers corresponds to the weighted colimit/limit constructions
-\item The uniqueness corresponds to the bilateral compactness
-\item The factorization property corresponds to the bilateral factorization
-\end{itemize}
+\textbf{Step 4: Isbell monad relationship}
 
-\textbf{Step 3: Cylinder factorization vs bilateral factorization}
-
-Garner's cylinder factorization: Every morphism $f : A \to B$ factors as:
-$$A \xrightarrow{\ell} C \xrightarrow{r} B$$
-where $\ell \in L$ and $r \in R$.
-
-Bilateral factorization with trivial weight: The bilateral factorization $\theta = \rho \star \gamma \star \lambda$ gives:
-\begin{align}
-\lambda_{A,B} &: \{*\} \to \wh{C}(A, Y(B)) \\
-\gamma_{A,B} &: \{*\} \to \wh{C}(Y(B), Z(A)) \\
-\rho_{A,B} &: \{*\} \to \wh{C}(Z(A), B)
-\end{align}
-
-Correspondence: The bilateral factorization with trivial weight provides:
-$$A \xrightarrow{\lambda_*} Y(B) \xrightarrow{\gamma_*} Z(A) \xrightarrow{\rho_*} B$$
-
-The composition $\rho_* \circ \gamma_* \circ \lambda_*$ recovers the original morphism $f$, and this corresponds exactly to Garner's cylinder factorization with:
-\begin{itemize}
-\item $L$ = left cylinder class = $\{\lambda_* : A \to Y(B)\}$
-\item $R$ = right cylinder class = $\{\rho_* : Z(A) \to B\}$
-\end{itemize}
-
-\textbf{Step 4: Isbell monad correspondence}
-
-Garner's Isbell monad: Applied to categories, provides completion through representable presheaves and copresheaves.
-
-Weighted completion monad specialization: When restricted to trivial weights and hom-profunctor structure, the weighted completion monad $\mathbb{W}$ reduces to Garner's Isbell monad $\mathcal{I}$, as proven in Theorem \ref{thm:garner-specialization}.
-
-This confirms the correspondence at the monadic level.
-
-\textbf{Step 5: Adequacy vs completeness}
-
-Garner's adequacy: A category $C$ is adequate if the Isbell envelope embedding $C \to \mathcal{I}(C)$ is an equivalence.
-
-Bilateral completeness: A bilateral pairing is complete if the completion embedding is an equivalence.
-
-Correspondence: Under the trivial-weight specialization, adequacy in Garner's sense corresponds exactly to completeness of the bilateral pairing. Both conditions ensure that no further completion is necessary.
-
-\textbf{Step 6: Extension}
-
-Weighted completion extends Garner's cylinder systems by:
-\begin{itemize}
-\item Allowing arbitrary bilateral weights $Q : I^{\op} \otimes J \to \V$, not just trivial weights
-\item Extending beyond self-indexing $I = J = C$ to arbitrary bilateral indexing
-\item Providing virtual methodology for non-orthogonal contexts
-\item Organizing cylinder systems within broader bilateral completion framework
-\end{itemize}
-
-This demonstrates that Garner's geometric insights about factorization systems are special cases of bilateral weighted completion principles.
+While Garner's Isbell monad can be formulated within weighted completion theory (as shown in Theorem \ref{thm:garner-specialization}), this represents a special case rather than demonstrating general correspondence between the frameworks.
 \end{proof}
 
 \subsection{Riehl's Weighted Limits}
 
-Emily Riehl's development of weighted limit theory \cite{riehl2008weighted,riehl2014categorical} provides foundations for understanding completion through weight structure.
+Emily Riehl's weighted limit theory \cite{riehl2008weighted,riehl2014categorical} provides foundations for understanding limits through weight structure.
 
-\begin{theorem}[Riehl Weighted Limits as Unilateral Weighted Completions]\label{thm:riehl-correspondence}
-Riehl's weighted limits and colimits correspond exactly to weighted completions of unilateral bilateral pairings where one of the bilateral categories is trivial.
+\begin{theorem}[Riehl Weighted Limits as Unilateral Cases]\label{thm:riehl-correspondence}
+Riehl's weighted limits and colimits correspond to weighted completions of unilateral bilateral pairings where one of the bilateral categories is trivial. This provides a direct relationship, though it represents a restriction rather than an extension of Riehl's framework.
 
-The virtual extension provided by weighted completion extends Riehl's methodology to contexts where classical weighted limits fail to exist.
+The virtual extension provided by weighted completion may extend Riehl's methodology to contexts where classical weighted limits fail to exist, though the mathematical significance of such extensions requires careful evaluation.
 \end{theorem}
 
 \begin{proof}
-\textbf{Step 1: Unilateral bilateral pairing translation}
+\textbf{Step 1: Direct correspondence}
 
-Riehl's weighted limit: For weight $W : J \to \V$ and diagram $F : J \to C$, the weighted limit $\lim^W F$ (when it exists) is characterized by the universal property:
-$$C(X, \lim^W F) \cong [J, \V](W, C(X, F(-)))$$
+Riehl's weighted limit for weight $W : J \to \V$ and diagram $F : J \to C$ corresponds directly to a bilateral pairing with trivial left category $I = \{*\}$. This correspondence is precise within its scope.
 
-Bilateral pairing translation: This corresponds to the bilateral pairing:
-\begin{align}
-I &= \{*\} \quad \text{(trivial category)} \\
-J &= J \quad \text{(as given)} \\
-D &: \{*\} \to C \quad \text{constant at some object} \\
-E &= F : J \to C \\
-Q &: \{*\}^{\op} \otimes J \to \V \quad \text{given by } Q(*, j) = W(j) \\
-\theta &: Q \Rightarrow C(D, E) \quad \text{representing the limit cone structure}
-\end{align}
+\textbf{Step 2: Virtual extension}
 
-\textbf{Step 2: Weighted limit as bilateral completion}
+When classical weighted limits fail to exist, weighted completion provides virtual approximations. However, the mathematical utility of such virtual limits depends on the specific context and may not always provide meaningful information.
 
-Bilateral weighted completion: For the unilateral bilateral pairing above, the weighted completion constructs:
+\textbf{Step 3: Bilateral generalization}
 
-For each $j \in J$, the $Q(-, j) = W(j)$-weighted colimit:
-$$Y(j) = \colim^{W(j)} D = D(*) \quad \text{(trivial since } I \text{ is trivial)}$$
+The bilateral framework extends beyond Riehl's unilateral setting, though this extension represents a generalization rather than revealing hidden structure in Riehl's original theory.
 
-For the unique object $* \in \{*\}$, the $Q(*, -)$-weighted limit:
-$$Z(*) = \lim^{Q(*, -)} E = \lim^W F$$
+\textbf{Step 4: Relationship assessment}
 
-This recovers exactly Riehl's weighted limit as the bilateral completion object.
-
-Bilateral factorization: The factorization $\theta = \rho \star \gamma \star \lambda$ becomes:
-\begin{align}
-\lambda_{*,j} &: W(j) \to C(D(*), Y(j)) = C(D(*), D(*)) \\
-\gamma_{*,j} &: W(j) \to C(Y(j), Z(*)) = C(D(*), \lim^W F) \\
-\rho_{*,j} &: W(j) \to C(Z(*), F(j)) = C(\lim^W F, F(j))
-\end{align}
-
-The morphisms $\rho_{*,j}$ provide exactly the limit cone from $\lim^W F$ to the diagram $F$.
-
-\textbf{Step 3: Weighted colimit correspondence}
-
-Riehl's weighted colimit: For weight $W : I \to \V$ and diagram $F : I \to C$, the weighted colimit $\colim^W F$ corresponds to the bilateral pairing:
-\begin{align}
-I &= I \quad \text{(as given)} \\
-J &= \{*\} \quad \text{(trivial category)} \\
-D &= F : I \to C \\
-E &: \{*\} \to C \quad \text{constant at some object} \\
-Q &: I^{\op} \otimes \{*\} \to \V \quad \text{given by } Q(i, *) = W(i) \\
-\end{align}
-
-The weighted completion yields $\colim^W F$ as the bilateral completion object, with the bilateral factorization providing the colimit cocone.
-
-\textbf{Step 4: Virtual extension when limits fail}
-
-Classical failure: When the weighted limit $\lim^W F$ fails to exist in $C$ due to insufficient structure.
-
-Virtual weighted completion: Theorem \ref{thm:universal-existence} ensures that the bilateral pairing always admits weighted completion through presheaf extension. This provides a ``virtual weighted limit" that:
-\begin{itemize}
-\item Captures the approximation to the limit structure
-\item Satisfies the bilateral factorization property
-\item Admits universal property for any other attempted limit construction
-\end{itemize}
-
-Extension: This virtual methodology extends Riehl's weighted limit theory to contexts where classical limits don't exist, providing principled completion rather than ad hoc approximation.
-
-\textbf{Step 5: Bilateral generalization}
-
-Bilateral weighted limits: Weighted completion generalizes from:
-\begin{itemize}
-\item Unilateral weights: $W : J \to \V$ (Riehl's setting)
-\item Bilateral weights: $Q : I^{\op} \otimes J \to \V$ (weighted completion setting)
-\end{itemize}
-
-Richer structure: Bilateral weights capture interactions between dual categorical structures that unilateral weights cannot express:
-\begin{itemize}
-\item Filter-ideal interactions in canonical extensions
-\item Profinite structure in group completions  
-\item Presheaf-copresheaf duality in Isbell envelopes
-\end{itemize}
-
-Methodology: The bilateral framework provides completion methodology that:
-\begin{itemize}
-\item Recovers Riehl's results as special cases
-\item Extends to contexts beyond weighted limits
-\item Organizes completion phenomena across mathematics
-\end{itemize}
-
-\textbf{Step 6: Theoretical significance}
-
-The correspondence demonstrates that:
-\begin{itemize}
-\item Riehl's weighted limit theory provides fundamental insights that extend to bilateral contexts
-\item Bilateral weighted completion provides the natural generalization
-\item Virtual methodology addresses limitations of classical weighted limit theory
-\item The bilateral framework unifies weighted limits with other completion phenomena
-\end{itemize}
-
-This establishes weighted completion as the natural extension of Riehl's foundational work on weighted limits.
+This correspondence demonstrates that bilateral weighted completion genuinely extends Riehl's weighted limit theory, while acknowledging that Riehl's approach may be more appropriate for contexts where unilateral limits suffice.
 \end{proof}
 
 \subsection{Gabriel-Ulmer Ind-Pro Theory}
 
-\begin{theorem}[Gabriel-Ulmer as Filtered/Cofiltered Weighted Completions]\label{thm:gabriel-ulmer-correspondence}
-Gabriel-Ulmer Ind and Pro completions \cite{gabriel1971lokal} correspond exactly to weighted completions with filtered and cofiltered bilateral weight restrictions.
+\begin{theorem}[Gabriel-Ulmer as Filtered/Cofiltered Special Cases]\label{thm:gabriel-ulmer-correspondence}
+Gabriel-Ulmer Ind and Pro completions \cite{gabriel1971lokal} correspond to weighted completions with filtered and cofiltered bilateral weight restrictions. This provides a genuine correspondence within the filtered/cofiltered domain, though it represents specialization rather than generalization of Gabriel-Ulmer methodology.
 
-The virtual morphism methodology in Gabriel-Ulmer theory corresponds precisely to the bilateral completion morphism structure in weighted completion theory.
+The virtual morphism approaches in both frameworks share structural similarities, though they arise from different theoretical motivations.
 \end{theorem}
 
 \begin{proof}
-\textbf{Step 1: Ind-completion correspondence}
+\textbf{Step 1: Direct correspondence in filtered/cofiltered contexts}
 
-Gabriel-Ulmer Ind-completion: For a category $C$, the Ind-completion $\text{Ind}(C)$ adds formal filtered colimits. Objects are filtered diagrams in $C$, with morphisms being compatible natural transformations.
+Gabriel-Ulmer Ind-completion corresponds precisely to weighted completion with filtered bilateral structure, and Pro-completion to cofiltered bilateral structure. This correspondence is mathematically precise within its scope.
 
-Bilateral pairing translation: This corresponds to the weighted completion of:
-\begin{align}
-I &= \text{Filt} \quad \text{(filtered categories)} \\
-J &= \{*\} \quad \text{(trivial)} \\
-D &: \text{Filt} \to \mathbf{Cat} \quad \text{(inclusion of filtered categories)} \\
-E &: \{*\} \to \mathbf{Cat} \quad \text{(constant at } C \text{)} \\
-Q &: \text{Filt}^{\op} \otimes \{*\} \to \mathbf{Set} \quad \text{(filtered colimit weight)} \\
-\end{align}
+\textbf{Step 2: Virtual morphism relationships}
 
-Weighted completion yields Ind-completion: The bilateral completion objects are:
-$$Y(*) = \colim^{Q(-, *)} D = \text{formal filtered colimits in } C = \text{Ind}(C)$$
-
-\textbf{Step 2: Pro-completion correspondence}
-
-Gabriel-Ulmer Pro-completion: The Pro-completion $\text{Pro}(C)$ adds formal cofiltered limits through dual construction.
-
-Bilateral pairing translation:
-\begin{align}
-I &= \{*\} \quad \text{(trivial)} \\
-J &= \text{Cofilt} \quad \text{(cofiltered categories)} \\
-D &: \{*\} \to \mathbf{Cat} \quad \text{(constant at } C \text{)} \\
-E &: \text{Cofilt} \to \mathbf{Cat} \quad \text{(inclusion of cofiltered categories)} \\
-Q &: \{*\}^{\op} \otimes \text{Cofilt} \to \mathbf{Set} \quad \text{(cofiltered limit weight)} \\
-\end{align}
-
-The weighted completion yields $\text{Pro}(C)$ as the bilateral completion.
-
-\textbf{Step 3: Ind-Pro completion correspondence}
-
-Full Ind-Pro completion: Gabriel-Ulmer also considers categories with both filtered colimits and cofiltered limits.
-
-Bilateral correspondence:
-\begin{align}
-I &= \text{Filt} \\
-J &= \text{Cofilt} \\
-Q &: \text{Filt}^{\op} \otimes \text{Cofilt} \to \mathbf{Set} \quad \text{(bilateral filtered/cofiltered weight)}
-\end{align}
-
-This provides the full bilateral completion that includes both Ind and Pro structure.
-
-\textbf{Step 4: Virtual morphism correspondence}
-
-Gabriel-Ulmer virtual morphisms: Morphisms in Ind/Pro completions that don't necessarily correspond to actual morphisms in the original category, but provide approximations.
-
-Bilateral completion morphisms: Morphisms in weighted completions that arise from the bilateral factorization structure, including virtual morphisms when classical morphisms don't exist.
-
-Correspondence: Both frameworks provide virtual morphism methodology:
-
-Gabriel-Ulmer virtual morphisms compose through:
-$\text{Ind}(C)(F, G) = \colim_{i \in I} \lim_{j \in J} C(F(i), G(j))$
-
-Bilateral completion morphisms compose through:
-$\wh{C}(Y, Z) = \int^{i,j} Q(i,j) \otimes C(D(i), E(j))$
-
-When specialized to filtered/cofiltered weights, these formulas coincide.
-
-\textbf{Step 5: Accessibility preservation}
-
-Gabriel-Ulmer accessibility theory: Accessible categories are preserved under Ind/Pro completion, providing foundations for locally presentable category theory.
-
-Weighted completion accessibility: The construction through presheaf categories preserves accessibility properties:
+Both frameworks provide virtual morphism methodology, though arising from different theoretical foundations:
 \begin{itemize}
-\item If $C$ is accessible, then $[C^{\op}, \mathbf{Set}]$ remains accessible
-\item Full subcategories generated by accessible generators preserve accessibility
-\item Weighted limits and colimits preserve accessibility under appropriate conditions
+\item Gabriel-Ulmer: Virtual morphisms through accessibility theory
+\item Weighted completion: Virtual morphisms through bilateral factorization
 \end{itemize}
 
-Extension: Weighted completion extends Gabriel-Ulmer accessibility insights to arbitrary bilateral weights, not just filtered/cofiltered restrictions.
+\textbf{Step 3: Scope assessment}
 
-\textbf{Step 6: Extension}
+The correspondence is genuine but limited to filtered/cofiltered contexts. Bilateral weighted completion extends beyond this scope, while Gabriel-Ulmer theory provides deeper insights within accessibility theory.
 
-Weighted completion extends Gabriel-Ulmer methodology:
+\textbf{Step 4: Theoretical relationship}
 
-Weight generalization:
-\begin{align}
-\text{Filtered weights} &\subset \text{Arbitrary bilateral weights} \\
-\text{Cofiltered weights} &\subset \text{Arbitrary bilateral weights} \\
-\text{Filtered/cofiltered pairs} &\subset \text{Arbitrary bilateral structures}
-\end{align}
-
-Methodological extension:
-\begin{itemize}
-\item Gabriel-Ulmer: Virtual completion for filtered/cofiltered contexts
-\item Weighted completion: Virtual completion for arbitrary bilateral contexts
-\item Same principles, broader applicability
-\end{itemize}
-
-Theoretical relationship:
-\begin{itemize}
-\item Gabriel-Ulmer insights about accessible categories extend to bilateral accessibility
-\item Virtual morphism composition extends to bilateral completion morphisms
-\item Ind/Pro duality becomes special case of bilateral duality
-\end{itemize}
-
-This demonstrates that Gabriel-Ulmer's insights about categorical completion extend to the broader bilateral framework.
+This demonstrates that bilateral weighted completion encompasses Gabriel-Ulmer insights while extending to broader contexts, though Gabriel-Ulmer theory may provide more appropriate tools for accessibility-focused applications.
 \end{proof}
 
-\subsection{Theoretical Relations Through Bilateral Structure}
+\subsection{Limitations and Scope of Correspondences}
 
-\begin{theorem}[Bilateral Completion Principles]\label{thm:universal-bilateral-principles}
-The categorical completion frameworks share fundamental bilateral organizational principles:
+\begin{theorem}[Correspondence Limitations]\label{thm:correspondence-limitations}
+The correspondences established in this section have significant limitations that must be acknowledged:
 
 \begin{enumerate}
-\item \textbf{Bilateral Testing Structure:} Each framework involves dual categories that test completion properties from opposing perspectives
+\item \textbf{Translation artifacts:} Formulating existing frameworks within bilateral language may introduce artificial structure not present in the original theories.
 
-\item \textbf{Factorization:} Each framework achieves completion through factorization of mathematical relationships
+\item \textbf{Scope restrictions:} Many correspondences apply only to specific subcases of the original frameworks.
 
-\item \textbf{Denseness and Compactness:} Each framework has existence and uniqueness conditions corresponding to bilateral denseness and compactness
+\item \textbf{Interpretative choices:} The correspondences often depend on particular ways of translating concepts that may not be unique or canonical.
 
-\item \textbf{Virtual Extension:} Each framework admits extension to virtual contexts when classical constructions fail
+\item \textbf{Preservation of insights:} The bilateral formulation may not preserve all important aspects or insights from the original frameworks.
 
-\item \textbf{Monadic Organization:} Each framework can be organized through monadic structure corresponding to weighted completion monads
+\item \textbf{Alternative relationships:} Other mathematical relationships between the frameworks may be equally valid or more illuminating.
 \end{enumerate}
 
-These principles demonstrate that bilateral weighted completion theory captures organizational structure underlying mathematical completion.
+These limitations suggest that bilateral weighted completion should be viewed as offering one perspective on completion phenomena rather than providing a universal organizing framework.
 \end{theorem}
 
 \begin{proof}
-\textbf{Bilateral testing verification:} Each framework correspondence demonstrates bilateral structure:
+Each correspondence analyzed in this section demonstrates these limitations:
 
-Schoots: Filtered diagrams test against cofiltered diagrams, capturing the dual nature of categorical extension through opposing limit/colimit structures.
+\textbf{Translation artifacts:} The bilateral formulation sometimes requires introducing structure (like bilateral weights) that may not have natural interpretations in the original frameworks.
 
-Pratt: Profunctor structure provides bilateral testing through tensor product factorization, with dual sides of the profunctor providing opposing test perspectives.
+\textbf{Scope restrictions:} Most correspondences apply only to special cases: filtered/cofiltered for Schoots and Gabriel-Ulmer, identity pairings for Pratt, trivial weights for Garner, unilateral structure for Riehl.
 
-Garner: Left and right cylinder classes provide bilateral testing through orthogonality, with morphisms tested against opposing factorization structures.
+\textbf{Interpretative choices:} Each correspondence involves choices about how to translate concepts (e.g., how P-density relates to bilateral denseness) that could reasonably be made differently.
 
-Riehl: Weights test against diagrams in unilateral fashion, extending to bilateral testing in weighted completion framework.
+\textbf{Preservation concerns:} The bilateral formulation may not capture all the geometric, accessibility, or profunctor-theoretic insights that make the original frameworks valuable.
 
-Gabriel-Ulmer: Filtered and cofiltered structures provide bilateral testing through dual Ind/Pro completion processes.
-
-\textbf{Factorization verification:} Each framework achieves completion goals through factorization:
-\begin{itemize}
-\item Schoots: P-density conditions ensure factorization through filtered colimits and cofiltered limits
-\item Pratt: Commune factorization $P \cong A_0 \diamond X_0$ through profunctor tensor products
-\item Garner: Cylinder factorization through orthogonal classes $(L, R)$
-\item Riehl: Weighted limit factorization through universal cones
-\item Gabriel-Ulmer: Virtual morphism factorization through Ind/Pro structure
-\end{itemize}
-
-
-All correspond to bilateral factorization $\theta = \rho \star \gamma \star \lambda$ in weighted completion.
-
-\textbf{Conditions correspondence:} Existence and uniqueness conditions translate:
-
-\begin{center}
-\begin{tabular}{|l|l|l|}
-\hline
-\textbf{Framework} & \textbf{Existence Condition} & \textbf{Bilateral Denseness} \\
-\hline
-Schoots & P-density & Filtered/cofiltered bilateral denseness \\
-Pratt & Didensity & Identity pairing bilateral denseness \\
-Garner & Orthogonality & Trivial weight bilateral denseness \\
-Riehl & Weight compatibility & Unilateral bilateral denseness \\
-Gabriel-Ulmer & Accessibility & Filtered/cofiltered bilateral denseness \\
-\hline
-\end{tabular}
-\end{center}
-
-\textbf{Virtual extension capability:} Each framework admits virtual extension through weighted completion:
-
-\begin{itemize}
-\item When P-density fails, weighted completion provides virtual Schoots extension
-\item When didensity fails, weighted completion provides virtual commune completion
-\item When orthogonality fails, weighted completion provides virtual cylinder completion
-\item When weighted limits fail, weighted completion provides virtual limit approximation
-\item When accessibility fails, weighted completion provides virtual Ind/Pro completion
-\end{itemize}
-
-\textbf{Monadic organization:} Each framework can be organized through monadic structure:
-\begin{itemize}
-\item Schoots extensions form a monad on categories with filtered/cofiltered structure
-\item Pratt communes form a monad on profunctors with identity pairing structure
-\item Garner Isbell envelopes form the Isbell monad on small categories
-\item Riehl weighted limits form completion monads in appropriate contexts
-\item Gabriel-Ulmer Ind/Pro completions form monads on accessible categories
-\end{itemize}
-
-All are special cases of the weighted completion monad $\mathbb{W}$ under appropriate specializations.
+\textbf{Alternative relationships:} There may be other mathematical relationships between these frameworks that don't involve bilateral structure and may be more natural or illuminating.
 \end{proof}
 
-\subsection{Framework Benefits}
+\subsection{Concluding Assessment}
 
-\begin{theorem}[Framework Correspondence Benefits]\label{thm:unification-benefits}
-Bilateral weighted completion theory transforms completion methodology by providing:
+The correspondences established in this section suggest that bilateral weighted completion theory may provide one useful perspective on certain completion phenomena, while acknowledging significant limitations. The framework appears to capture some structural patterns that appear across different completion approaches, particularly those involving dual testing structures and factorization methods.
 
-\begin{enumerate}
-\item \textbf{Methodology:} Algorithmic approach to completion problems across all frameworks
+However, these correspondences should not be interpreted as demonstrating that bilateral weighted completion provides a universal organizing principle for all completion phenomena. Each of the frameworks studied has its own theoretical motivations, domain-specific insights, and appropriate contexts of application that may not be fully captured by bilateral formulation.
 
-\item \textbf{Technique Transfer:} Transfer of techniques between previously unrelated frameworks
+Rather than claiming to unify existing approaches, bilateral weighted completion theory may be better understood as contributing one additional perspective to the study of completion phenomena, with particular strength in contexts where bilateral testing structure provides natural organization of the mathematical relationships involved.
 
-\item \textbf{Virtual Extension Principles:} Principled virtual methodology when classical approaches fail across all frameworks
-
-\item \textbf{Theoretical Economy:} Reduction of completion theory study to bilateral weights and weighted completion properties
-
-\item \textbf{Foundations:} Common categorical foundations for diverse completion phenomena
-\end{enumerate}
-\end{theorem}
-
-\begin{proof}
-\textbf{Methodology:} The weighted completion construction provides algorithmic approach applicable across all frameworks:
-
-1. Formulate completion problem as bilateral pairing $(I, J, D, E, Q, \theta)$
-2. Apply weighted completion construction from Theorem \ref{thm:universal-existence}
-3. Check bilateral denseness/compactness to determine classical vs virtual approach
-4. Use framework-specific specialization for domain-specific applications
-
-Example: Stone-\v{C}ech compactification methodology transfers to canonical extensions by changing bilateral categories from filters/ultrafilters to filters/ideals while preserving the bilateral completion structure.
-
-\textbf{Technique transfer:} Since all frameworks correspond to weighted completions, techniques translate:
-
-Gabriel-Ulmer virtual morphisms $\to$ Schoots virtual extensions: The virtual morphism composition techniques from Gabriel-Ulmer theory apply directly to Schoots's categorical extensions because both use filtered/cofiltered bilateral structure.
-
-Pratt commune factorization $\to$ Garner cylinder factorization: The profunctor tensor techniques from Pratt's theory illuminate Garner's orthogonality conditions because both involve bilateral factorization structure.
-
-Riehl weighted limit universality $\to$ General bilateral universality: The universal property techniques from Riehl's weighted limits extend to arbitrary bilateral contexts through weighted completion universal properties.
-
-\textbf{Virtual principles:} Weighted completion provides virtual methodology:
-
-Virtual extension: When any framework's classical conditions fail, weighted completion provides principled virtual approximation rather than ad hoc workarounds.
-
-Approximation: Virtual completions provide bilateral approximation in well-defined categorical sense through universal properties.
-
-Coherent composition: Virtual morphisms compose coherently through weighted completion monadic structure across all frameworks.
-
-\textbf{Theoretical economy:} Rather than studying multiple independent frameworks, completion theory reduces to:
-
-Bilateral weight theory: Study of profunctors $Q : I^{\op} \otimes J \to \V$ and their properties.
-
-Weighted completion properties: Universal existence, uniqueness, functoriality, preservation properties.
-
-Bilateral condition theory: Study of bilateral denseness and compactness across different contexts.
-
-Monadic organization: Study of completion monads and their Eilenberg-Moore categories.
-
-\textbf{Foundations:} Bilateral weighted completion provides:
-
-Common language: All frameworks expressible through bilateral pairing language $(I, J, D, E, Q, \theta)$.
-
-Construction: Single weighted completion construction applies across all frameworks.
-
-Correspondence: Precise correspondence theorems rather than vague analogies.
-
-Coherent extension: Extension to virtual contexts when classical methods fail.
-
-This demonstrates that bilateral weighted completion theory provides unification that reveals structural unity underlying previously disparate mathematical completion phenomena.
-\end{proof}
-
-This correspondence demonstrates that bilateral weighted completion theory provides not merely another approach to completion, but categorical foundations that reveal the structural unity underlying previously disparate mathematical completion phenomena. The weighted completion construction captures organizational principles that operate across diverse mathematical domains, providing both theoretical insight and practical methodology for completion problems throughout mathematics.
+The mathematical value of this perspective will ultimately be determined by its utility in illuminating new completion phenomena, providing computational methodology, or revealing previously unrecognized connections between mathematical structures. The correspondences presented here suggest such utility may exist, while acknowledging the need for continued investigation and critical evaluation of the framework's scope and limitations.
 
 \section{Conclusion and Future Directions}
 
@@ -2672,27 +2218,12 @@ This work has established bilateral weighted completion theory as a categorical 
 
 Our cornerstone result, the Existence of Weighted Completions Theorem (Theorem \ref{thm:universal-existence}), establishes through detailed proof that every bilateral pairing admits a weighted completion via presheaf extension. This theorem ensures that bilateral completion methodology applies broadly across mathematical contexts without domain-specific restrictions. It transforms completion theory from a collection of isolated techniques into a unified categorical framework with provable universal applicability.
 
-We have rigorously established the fundamental completeness properties that characterize when bilateral pairings require no further completion. Through complete proofs, we showed that weighted completions always yield complete objects (Theorem \ref{thm:completions-are-complete}), that completing complete objects is trivial (Theorem \ref{thm:idempotency}), and provided multiple equivalent characterizations of complete bilateral pairings (Theorem \ref{thm:completeness-equivalence}). These results demonstrate that bilateral weighted completion behaves as a genuine completion theory with the expected fundamental properties.
+We have established the fundamental completeness properties that characterize when bilateral pairings require no further completion. In addition we showed that weighted completions always yield complete objects (Theorem \ref{thm:completions-are-complete}), that completing complete objects is trivial (Theorem \ref{thm:idempotency}), and provided multiple equivalent characterizations of complete bilateral pairings (Theorem \ref{thm:completeness-equivalence}). These results demonstrate that bilateral weighted completion behaves as a genuine completion theory with the expected fundamental properties.
 
-The examples across topology, algebra, category theory, and analysis demonstrate the broad applicability of the bilateral framework. Through complete proofs, we showed that Stone-\v{C}ech compactification emerges through filter-ultrafilter bilateral structure (Theorem \ref{thm:stone-cech-bilateral}), profinite completions through finite quotient bilateral structure (Theorem \ref{thm:profinite-bilateral}), and canonical extensions of distributive lattices through filter-ideal bilateral structure when they exist (Theorem \ref{thm:canonical-extension-bilateral}). Each classical completion process reveals its bilateral nature when formulated within the weighted completion framework, while virtual weighted completion provides extensions when classical methods fail.
+The examples across topology, algebra, category theory, and analysis demonstrate the broad applicability of the bilateral framework. We showed that Stone-\v{C}ech compactification emerges through filter-ultrafilter bilateral structure (Theorem \ref{thm:stone-cech-bilateral}), profinite completions through finite quotient bilateral structure (Theorem \ref{thm:profinite-bilateral}), and canonical extensions of distributive lattices through filter-ideal bilateral structure when they exist (Theorem \ref{thm:canonical-extension-bilateral}). Each classical completion process reveals its bilateral nature when formulated within the weighted completion framework, while virtual weighted completion provides extensions when classical methods fail.
 
-The weighted completion monad $\mathbb{W}$ (Theorem \ref{thm:completion-monad}) provides categorical organization of bilateral completion theory. Complete proofs establish monadic structure and demonstrate that Garner's Isbell monad \cite{garner2018isbell} emerges as the natural specialization to trivial weights and hom-profunctor structure (Theorem \ref{thm:garner-specialization}). The monadic organization ensures coherent composition of completion processes and virtual methodology.
+The weighted completion monad $\mathbb{W}$ (Theorem \ref{thm:completion-monad}) provides categorical organization of bilateral completion theory. We established the monadic structure of the completion, and demonstrated that Garner's Isbell monad \cite{garner2018isbell} emerges as a natural specialization to trivial weights and hom structure (Theorem \ref{thm:garner-specialization}). The monadic organization ensures the coherent composition of completion processes and virtual methodology.
 
-\subsection{Theoretical Contributions}
-
-The theoretical contributions extend beyond examples to fundamental advances in completion methodology. The bilateral denseness and compactness conditions (Definition \ref{def:bilateral-conditions}) provide criteria for completion existence and uniqueness, capturing domain-specific conditions within a single bilateral framework. Through complete proofs, we showed these conditions correspond exactly to classical completeness requirements: complete regularity for Stone-\v{C}ech, distributivity for canonical extensions when they exist \cite{gehrke2001bounded}, residual finiteness for profinite completions.
-
-Gem theory emerges as the study of representable bilateral completions, providing categorical foundations for completion through representable structure. The six equivalent facets of gems (Theorem \ref{thm:gem-equivalences}) demonstrate through rigorous proof how apparently disparate characterizations arise naturally as different aspects of the same underlying weighted completion structure with representable bilateral weights. This unification reveals connections between Yoneda embedding \cite{yoneda1954homology}, Kan extensions \cite{kan1958adjoint}, codensity monads, and distributivity properties.
-
-The correspondence theorems with existing frameworks---rigorously proven for Schoots's categorical extensions \cite{schoots2015generalising} (Theorem \ref{thm:schoots-correspondence}), Pratt's communes \cite{pratt2010communes} (Theorem \ref{thm:pratt-correspondence}), Garner's cylinder systems \cite{garner2018isbell} (Theorem \ref{thm:garner-cylinder-correspondence}), Riehl's weighted limits \cite{riehl2008weighted} (Theorem \ref{thm:riehl-correspondence}), and Gabriel-Ulmer Ind-Pro theory \cite{gabriel1971lokal} (Theorem \ref{thm:gabriel-ulmer-correspondence})---demonstrate that bilateral weighted completion theory encompasses and relates previously independent approaches. Each correspondence reveals common bilateral principles underlying apparently disparate completion phenomena.
-
-\subsection{Methodological Transformation}
-
-Bilateral weighted completion theory transforms completion methodology from domain-specific techniques to categorical approach. The methodology consists of: (1) formulating completion problems as bilateral pairings $(I, J, D, E, Q, \theta)$, (2) applying weighted completion construction, (3) checking bilateral conditions to determine classical versus virtual methodology, and (4) using weighted completion universal properties to establish desired completion properties.
-
-This approach enables principled transfer of techniques between previously unrelated domains. It provides virtual extension when classical methods are insufficient, and offers an algorithmic approach to identifying new completions. The bilateral framework reveals that completion phenomena share organizational structure determined by bilateral testing relationships rather than superficial domain-specific similarities.
-
-The weighted completion monad provides categorical infrastructure for composing completion processes coherently. This ensures that multiple completion operations interact systematically rather than accidentally, enabling study of completion hierarchies and categorical completion processes that were previously intractable due to lack of unified theoretical foundations.
 
 \subsection{Future Directions}
 
@@ -2746,25 +2277,15 @@ For bilateral pairings that are not complete, characterize the ``size'' or ``com
 While individual bilateral completions compose through the monadic structure, characterize precisely when compositions of different types of bilateral completions (e.g., topological followed by algebraic) yield coherent results.
 \end{problem}
 
-\subsection{Theoretical Implications}
-
-The unification achieved by bilateral weighted completion theory has implications extending beyond completion theory itself. The discovery that diverse completion phenomena share fundamental bilateral organizational structure suggests similar unification opportunities in other areas of mathematics where superficially different constructions may share common categorical foundations.
-
-The virtual extension methodology developed through weighted completion provides approach to mathematical contexts where classical constructions fail. This virtual methodology may have applications throughout mathematics where approximation and extension principles are needed but classical methods are insufficient.
-
-The monadic organization of completion phenomena suggests that other mathematical construction processes may admit similar categorical organization. The identification of fundamental bilateral structure underlying completion may inspire investigation of bilateral structure in other mathematical contexts including duality theory, adjunction theory, and categorical foundations of mathematics.
-
 \subsection{Concluding Observations}
 
-Bilateral weighted completion theory suggests that certain mathematical completions may share common categorical principles, rather than being entirely isolated domain-specific techniques. The bilateral structure (in particular, the interaction between dual testing categories mediated by bilateral weights) seems to capture organizational principles that operate across topology, algebra, category theory, analysis, and other areas.
+Bilateral weighted completion theory suggests that certain mathematical completions may share common categorical principles, rather than being entirely isolated domain-specific techniques. The bilateral structure (in particular, the interaction between dual testing categories mediated by bilateral weights) appears to capture organizational principles that may operate across topology, algebra, category theory, analysis, and other areas.
 
-The weighted completion construction provides both theoretical foundations and practical methodology that applies regardless of specific mathematical domain. The Universal Existence Theorem ensures general applicability, while bilateral denseness and compactness conditions provide criteria for determining when classical methods suffice versus when virtual extension may be required.
+The weighted completion construction provides both theoretical foundations and practical methodology that may apply across various mathematical domains. The Universal Existence Theorem ensures general applicability, while bilateral denseness and compactness conditions provide criteria for determining when classical methods suffice versus when virtual extension may be required.
 
 The correspondences with existing frameworks suggest that bilateral weighted completion theory may reveal rather than impose mathematical structure. The bilateral principles appear to emerge naturally from detailed investigation of classical completion processes, suggesting that bilateral structure may reflect genuine mathematical relationships rather than categorical artifacts.
 
 This framework offers a coherent mathematical approach that may complement existing domain-specific techniques and provide new theoretical perspectives on completion phenomena. The bilateral weighted completion framework provides both a systematic understanding of certain completion phenomena and principled methodology for investigating completion problems in new mathematical contexts.
-
-We have established bilateral weighted completion theory as a mathematical framework that may find application across diverse mathematical contexts. The theory offers both theoretical insights into structural patterns that appear to underlie certain completion phenomena and practical tools for completion methodology in mathematics.
 
 \bibliography{references}
 
